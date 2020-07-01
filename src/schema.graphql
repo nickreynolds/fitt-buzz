@@ -1,0 +1,27 @@
+type Query {
+  info: String!
+  feed: [Routine!]!
+}
+
+type Mutation {
+  post(description: String!): Routine!
+  signup(username: String!, password: String!): AuthPayload
+  login(username: String!, password: String!): AuthPayload
+}
+
+type Routine {
+  id: ID!
+  description: String!
+  postedBy: User
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type User {
+  id: ID!
+  username: String!
+  routines: [Routine!]!
+}
