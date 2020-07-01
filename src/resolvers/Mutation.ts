@@ -52,6 +52,7 @@ function post(parent: any, args: any, context: Context, info: any) {
   return context.prisma.routine.create({
     data: {
       description: args.description,
+      color: args.color,
       postedBy: { connect: { id: userId } },
     },
   });
