@@ -4,7 +4,7 @@ type Query {
 }
 
 type Mutation {
-  post(description: String!, color: String!), name: String!: Routine!
+  post(description: String!, color: String!, name: String!): Routine!
   signup(username: String!, password: String!): AuthPayload
   login(username: String!, password: String!): AuthPayload
 }
