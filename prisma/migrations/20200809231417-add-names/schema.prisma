@@ -1,7 +1,7 @@
 // 1
 datasource db {
     provider = "postgresql"
-    url      = env("DATABASE_URL")
+    url = "***"
 }
 
 // 2
@@ -10,6 +10,15 @@ generator client {
 }
 
 // 3
+model Routine {
+    id          Int      @id @default(autoincrement())
+    createdAt   DateTime @default(now())
+    name        String
+    description String
+    color       String
+    postedBy    User?    @relation(fields: [postedById], references: [id])
+    postedById  Int?
+}
 
 model Exercise {
     id          Int      @id @default(autoincrement())
@@ -19,29 +28,6 @@ model Exercise {
     format      String
     postedBy    User?    @relation(fields: [postedById], references: [id])
     postedById  Int?
-    Set         Set[]
-}
-
-model Set {
-    id          Int      @id @default(autoincrement())
-    createdAt   DateTime @default(now())
-    exercise    Exercise @relation(fields: [exerciseId], references: [id])
-    repetitions Int
-    restSeconds Int
-    exerciseId  Int
-    Routine     Routine? @relation(fields: [routineId], references: [id])
-    routineId   Int?
-}
-
-model Routine {
-    id          Int      @id @default(autoincrement())
-    createdAt   DateTime @default(now())
-    name        String
-    description String
-    color       String
-    postedBy    User?    @relation(fields: [postedById], references: [id])
-    postedById  Int?
-    sets        Set[]
 }
 
 model User {
