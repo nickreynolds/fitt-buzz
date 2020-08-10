@@ -4,7 +4,7 @@ type Query {
 }
 
 type Mutation {
-  post(description: String!, color: String!): Routine!
+  post(description: String!, color: String!), name: String!: Routine!
   signup(username: String!, password: String!): AuthPayload
   login(username: String!, password: String!): AuthPayload
 }
@@ -12,7 +12,13 @@ type Mutation {
 type Routine {
   id: ID!
   description: String!
+  name: String!
   postedBy: User
+}
+
+type Exercise {
+  id: ID!
+  description: String!
 }
 
 type AuthPayload {

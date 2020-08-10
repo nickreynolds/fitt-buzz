@@ -53,6 +53,7 @@ function post(parent: any, args: any, context: Context, info: any) {
     data: {
       description: args.description,
       color: args.color,
+      name: args.name,
       postedBy: { connect: { id: userId } },
     },
   });
