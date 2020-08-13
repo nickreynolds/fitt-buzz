@@ -1,7 +1,7 @@
 // 1
 datasource db {
     provider = "postgresql"
-    url      = env("DATABASE_URL")
+    url = "***"
 }
 
 // 2
@@ -17,8 +17,8 @@ model Exercise {
     name        String
     description String
     format      String
-    createdBy   User     @relation(fields: [createdById], references: [id])
-    createdById Int
+    postedBy    User     @relation(fields: [postedById], references: [id])
+    postedById  Int
     sets        Set[]
 }
 
@@ -27,17 +27,13 @@ model Set {
     exercise    Exercise   @relation(fields: [exerciseId], references: [id])
     restSeconds Int
     exerciseId  Int
-    createdBy   User       @relation(fields: [createdById], references: [id])
     setGroups   SetGroup[]
-    createdById Int
 }
 
 model SetGroup {
     id               Int               @id @default(autoincrement())
     sets             Set[]
     routineRevisions RoutineRevision[]
-    createdBy        User              @relation(fields: [createdById], references: [id])
-    createdById      Int
 }
 
 model RoutineRevision {
@@ -45,10 +41,8 @@ model RoutineRevision {
     createdAt   DateTime   @default(now())
     routineBlob String
     setGroups   SetGroup[]
-    routine     Routine?   @relation(fields: [routineId], references: [id])
+    Routine     Routine?   @relation(fields: [routineId], references: [id])
     routineId   Int?
-    createdBy   User       @relation(fields: [createdById], references: [id])
-    createdById Int
 }
 
 model Routine {
@@ -57,18 +51,15 @@ model Routine {
     name        String
     description String
     color       String
-    createdBy   User              @relation(fields: [createdById], references: [id])
-    createdById Int
+    postedBy    User              @relation(fields: [postedById], references: [id])
+    postedById  Int
     revisions   RoutineRevision[]
 }
 
 model User {
-    id              Int               @id @default(autoincrement())
-    username        String            @unique
-    password        String
-    routines        Routine[]
-    exercises       Exercise[]
-    Set             Set[]
-    SetGroup        SetGroup[]
-    RoutineRevision RoutineRevision[]
+    id        Int        @id @default(autoincrement())
+    username  String     @unique
+    password  String
+    routines  Routine[]
+    exercises Exercise[]
 }

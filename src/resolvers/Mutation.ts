@@ -46,7 +46,75 @@ async function login(parent: any, args: any, context: Context, info: any) {
   };
 }
 
-function post(parent: any, args: any, context: Context, info: any) {
+function createExercise(parent: any, args: any, context: Context, info: any) {
+  const userId = getUserId(context);
+  console.log("createExercise args: ", args);
+  console.log("createExercise userId: ", userId);
+
+  return context.prisma.exercise.create({
+    data: {
+      name: args.name,
+      description: args.description,
+      format: args.format,
+      createdBy: { connect: { id: userId } },
+    },
+  });
+}
+
+function createSet(parent: any, args: any, context: Context, info: any) {
+  const userId = getUserId(context);
+
+  return context.prisma.set.create({
+    data: {
+      restSeconds: args.restSeconds,
+      exercise: {
+        connect: {
+          id: args.exerciseID,
+        },
+      },
+      createdBy: { connect: { id: userId } },
+    },
+  });
+}
+
+function createSetGroup(parent: any, args: any, context: Context, info: any) {
+  const userId = getUserId(context);
+
+  return context.prisma.setGroup.create({
+    data: {
+      sets: {
+        connect: [{ id: 1 }],
+      },
+      createdBy: { connect: { id: userId } },
+    },
+  });
+}
+
+async function createRoutine(
+  parent: any,
+  args: any,
+  context: Context,
+  info: any
+) {
+  const userId = getUserId(context);
+
+  const routine = await context.prisma.routine.create({
+    data: {
+      description: args.description,
+      color: args.color,
+      name: args.name,
+      createdBy: { connect: { id: userId } },
+    },
+  });
+  await routine;
+}
+
+function createRoutineRevision(
+  parent: any,
+  args: any,
+  context: Context,
+  info: any
+) {
   const userId = getUserId(context);
 
   return context.prisma.routine.create({
@@ -54,7 +122,7 @@ function post(parent: any, args: any, context: Context, info: any) {
       description: args.description,
       color: args.color,
       name: args.name,
-      postedBy: { connect: { id: userId } },
+      createdBy: { connect: { id: userId } },
     },
   });
 }
@@ -62,5 +130,9 @@ function post(parent: any, args: any, context: Context, info: any) {
 export default {
   signup,
   login,
-  post,
+  createExercise,
+  createSet,
+  createSetGroup,
+  createRoutineRevision,
+  createRoutine,
 };

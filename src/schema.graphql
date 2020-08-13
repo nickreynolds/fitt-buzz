@@ -1,24 +1,62 @@
 type Query {
   info: String!
   feed: [Routine!]!
+  exercises: [Exercise!]!
 }
 
 type Mutation {
-  post(description: String!, color: String!, name: String!): Routine!
+  createRoutine(name: String!, description: String!, color: String!): Routine!
+  createRoutineRevision(
+    name: String!
+    description: String!
+    color: String!
+  ): Routine!
+  createExercise(
+    name: String!
+    description: String!
+    format: String!
+  ): Exercise!
+  createSet(exerciseID: String!, restSeconds: Int!): Set!
+  createSetGroup: Set!
   signup(username: String!, password: String!): AuthPayload
   login(username: String!, password: String!): AuthPayload
+}
+
+type Exercise {
+  id: ID!
+  name: String!
+  description: String!
+  format: String!
+  createdBy: User!
+  sets: [Set]
+}
+
+type Set {
+  id: ID!
+  exercise: Exercise!
+  restSeconds: Int!
+  createdBy: User!
+  setGroups: [SetGroup]
+}
+
+type SetGroup {
+  id: ID!
+  createdBy: User!
+  sets: [Set]
+}
+
+type RoutineRevision {
+  id: ID!
+  setGroups: [SetGroup]
+  createdBy: User!
+  routine: Routine
 }
 
 type Routine {
   id: ID!
   description: String!
   name: String!
-  postedBy: User
-}
-
-type Exercise {
-  id: ID!
-  description: String!
+  createdBy: User!
 }
 
 type AuthPayload {
