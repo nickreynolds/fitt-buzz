@@ -12,7 +12,7 @@ generator client {
 // 3
 
 model Muscle {
-    id           Int            @id @default(autoincrement())
+    id           String         @id
     createdAt    DateTime       @default(now())
     name         String
     description  String
@@ -20,23 +20,22 @@ model Muscle {
 }
 
 model MuscleImpact {
-    id           Int       @id @default(autoincrement())
-    muscle       Muscle    @relation(fields: [muscleId], references: [id])
+    id           String     @id
+    muscle       Muscle     @relation(fields: [muscleId], references: [id])
     impactRating Int
-    muscleId     Int
-    Exercise     Exercise? @relation(fields: [exerciseId], references: [id])
-    exerciseId   Int?
+    muscleId     String
+    exercises    Exercise[] @relation(references: [id])
 }
 
 model Measurable {
-    id         Int       @id @default(autoincrement())
+    id         String    @id
     name       String
     Exercise   Exercise? @relation(fields: [exerciseId], references: [id])
-    exerciseId Int?
+    exerciseId String?
 }
 
 model Format {
-    id          Int        @id @default(autoincrement())
+    id          String     @id
     createdAt   DateTime   @default(now())
     name        String
     description String
@@ -44,61 +43,61 @@ model Format {
 }
 
 model Exercise {
-    id            Int            @id @default(autoincrement())
+    id            String         @id
     createdAt     DateTime       @default(now())
     name          String
     description   String
     format        Format         @relation(fields: [formatId], references: [id])
-    muscleImpacts MuscleImpact[]
+    muscleImpacts MuscleImpact[] @relation(references: [id])
     createdBy     User           @relation(fields: [createdById], references: [id])
-    createdById   Int
+    createdById   String
     sets          Set[]
-    formatId      Int
+    formatId      String
     measurables   Measurable[]
 }
 
 model Set {
-    id          Int        @id @default(autoincrement())
+    id          String     @id
     exercise    Exercise   @relation(fields: [exerciseId], references: [id])
     restSeconds Int
-    exerciseId  Int
+    exerciseId  String
     createdBy   User       @relation(fields: [createdById], references: [id])
     setGroups   SetGroup[]
-    createdById Int
+    createdById String
 }
 
 model SetGroup {
-    id               Int               @id @default(autoincrement())
+    id               String            @id
     sets             Set[]
     routineRevisions RoutineRevision[]
     createdBy        User              @relation(fields: [createdById], references: [id])
-    createdById      Int
+    createdById      String
 }
 
 model RoutineRevision {
-    id          Int        @id @default(autoincrement())
+    id          String     @id
     createdAt   DateTime   @default(now())
     routineBlob String
     setGroups   SetGroup[]
     routine     Routine?   @relation(fields: [routineId], references: [id])
-    routineId   Int?
+    routineId   String?
     createdBy   User       @relation(fields: [createdById], references: [id])
-    createdById Int
+    createdById String
 }
 
 model Routine {
-    id          Int               @id @default(autoincrement())
+    id          String            @id
     createdAt   DateTime          @default(now())
     name        String
     description String
     color       String
     createdBy   User              @relation(fields: [createdById], references: [id])
-    createdById Int
+    createdById String
     revisions   RoutineRevision[]
 }
 
 model User {
-    id              Int               @id @default(autoincrement())
+    id              String            @id
     username        String            @unique
     password        String
     routines        Routine[]

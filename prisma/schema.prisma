@@ -20,27 +20,26 @@ model Muscle {
 }
 
 model MuscleImpact {
-    id           String    @id
-    muscle       Muscle    @relation(fields: [muscleId], references: [id])
+    id           String     @id
+    muscle       Muscle     @relation(fields: [muscleId], references: [id])
     impactRating Int
     muscleId     String
-    Exercise     Exercise? @relation(fields: [exerciseId], references: [id])
-    exerciseId   String?
+    exercises    Exercise[] @relation(references: [id])
 }
 
 model Measurable {
-    id         String    @id
-    name       String
-    Exercise   Exercise? @relation(fields: [exerciseId], references: [id])
-    exerciseId String?
+    id      String   @id
+    name    String
+    formats Format[] @relation(references: [id])
 }
 
 model Format {
-    id          String     @id
-    createdAt   DateTime   @default(now())
+    id          String       @id
+    createdAt   DateTime     @default(now())
     name        String
     description String
-    Exercise    Exercise[]
+    measurables Measurable[]
+    exercises   Exercise[]
 }
 
 model Exercise {
@@ -49,12 +48,11 @@ model Exercise {
     name          String
     description   String
     format        Format         @relation(fields: [formatId], references: [id])
-    muscleImpacts MuscleImpact[]
-    createdBy     User           @relation(fields: [createdById], references: [id])
-    createdById   String
+    muscleImpacts MuscleImpact[] @relation(references: [id])
+    createdBy     User?          @relation(fields: [createdById], references: [id])
+    createdById   String?
     sets          Set[]
     formatId      String
-    measurables   Measurable[]
 }
 
 model Set {
