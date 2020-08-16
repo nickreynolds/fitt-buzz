@@ -1,7 +1,7 @@
 // 1
 datasource db {
     provider = "postgresql"
-    url      = env("DATABASE_URL")
+    url = "***"
 }
 
 // 2
@@ -12,7 +12,7 @@ generator client {
 // 3
 
 model Muscle {
-    id           String         @id
+    id           Int            @id
     createdAt    DateTime       @default(now())
     name         String
     description  String
@@ -20,23 +20,23 @@ model Muscle {
 }
 
 model MuscleImpact {
-    id           String    @id
+    id           Int       @id @default(autoincrement())
     muscle       Muscle    @relation(fields: [muscleId], references: [id])
     impactRating Int
-    muscleId     String
+    muscleId     Int
     Exercise     Exercise? @relation(fields: [exerciseId], references: [id])
-    exerciseId   String?
+    exerciseId   Int?
 }
 
 model Measurable {
-    id         String    @id
+    id         Int       @id @default(autoincrement())
     name       String
     Exercise   Exercise? @relation(fields: [exerciseId], references: [id])
-    exerciseId String?
+    exerciseId Int?
 }
 
 model Format {
-    id          String     @id
+    id          Int        @id @default(autoincrement())
     createdAt   DateTime   @default(now())
     name        String
     description String
@@ -44,61 +44,61 @@ model Format {
 }
 
 model Exercise {
-    id            String         @id
+    id            Int            @id @default(autoincrement())
     createdAt     DateTime       @default(now())
     name          String
     description   String
     format        Format         @relation(fields: [formatId], references: [id])
     muscleImpacts MuscleImpact[]
     createdBy     User           @relation(fields: [createdById], references: [id])
-    createdById   String
+    createdById   Int
     sets          Set[]
-    formatId      String
+    formatId      Int
     measurables   Measurable[]
 }
 
 model Set {
-    id          String     @id
+    id          Int        @id @default(autoincrement())
     exercise    Exercise   @relation(fields: [exerciseId], references: [id])
     restSeconds Int
-    exerciseId  String
+    exerciseId  Int
     createdBy   User       @relation(fields: [createdById], references: [id])
     setGroups   SetGroup[]
-    createdById String
+    createdById Int
 }
 
 model SetGroup {
-    id               String            @id
+    id               Int               @id @default(autoincrement())
     sets             Set[]
     routineRevisions RoutineRevision[]
     createdBy        User              @relation(fields: [createdById], references: [id])
-    createdById      String
+    createdById      Int
 }
 
 model RoutineRevision {
-    id          String     @id
+    id          Int        @id @default(autoincrement())
     createdAt   DateTime   @default(now())
     routineBlob String
     setGroups   SetGroup[]
     routine     Routine?   @relation(fields: [routineId], references: [id])
-    routineId   String?
+    routineId   Int?
     createdBy   User       @relation(fields: [createdById], references: [id])
-    createdById String
+    createdById Int
 }
 
 model Routine {
-    id          String            @id
+    id          Int               @id @default(autoincrement())
     createdAt   DateTime          @default(now())
     name        String
     description String
     color       String
     createdBy   User              @relation(fields: [createdById], references: [id])
-    createdById String
+    createdById Int
     revisions   RoutineRevision[]
 }
 
 model User {
-    id              String            @id
+    id              Int               @id @default(autoincrement())
     username        String            @unique
     password        String
     routines        Routine[]

@@ -1,0 +1,20 @@
+{
+  "muscles": [
+    {
+      "id": "7c492611-71aa-4968-b35f-d490fbda621f",
+      "name": "Biceps",
+      "description": "The biceps (Latin: musculus biceps brachii, \"two-headed muscle of the arm\", sometimes abbreviated to biceps brachii) is a large muscle that lies on the front of the upper arm between the shoulder and the elbow. Both heads of the muscle arise on the scapula and join to form a single muscle belly which is attached to the upper forearm. While the biceps crosses both the shoulder and elbow joints, its main function is at the elbow where it flexes the forearm and supinates the forearm."
+    },
+    {
+      "id": "77b693c4-b295-4b4a-9a92-cc23e1070dfb",
+      "name": "Triceps",
+      "description": "The triceps, also triceps brachii (Latin for \"three-headed muscle of the arm\"), is a large muscle on the back of the upper limb of many vertebrates. It is the muscle principally responsible for extension of the elbow joint (straightening of the arm)."
+    },
+    {
+      "id": "22b42120-6c7e-4c76-9ea9-df09c3013c88",
+      "name": "Pectoralis major",
+      "description": "The pectoralis major (from Latin pectus, meaning 'breast') is a thick, fan-shaped muscle, situated at the chest of the human body. It makes up the bulk of the chest muscles and lies under the breast. Beneath the pectoralis major is the pectoralis minor, a thin, triangular muscle. The pectoralis major's primary functions are flexion, adduction, and internal rotation of the humerus. The pectoral major may colloquially be referred to as \"pecs\", \"pectoral muscle\" or \"chest muscle\" due to it being the largest and most superficial muscle in the chest area."
+    }
+  ],
+  "exercises": [{}, {}]
+}

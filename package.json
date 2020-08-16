@@ -7,7 +7,8 @@
     "start": "nodemon -e ts,graphql -x ts-node src/index.ts",
     "dev": "dotenv -- nodemon -e ts,graphql -x ts-node src/index.ts",
     "debug": "dotenv -- nodemon -e ts,graphql -x ts-node --inspect src/index.ts",
-    "build": "rimraf dist && tsc"
+    "build": "rimraf dist && tsc",
+    "populate": "node ./src/populateDB.js"
   },
   "keywords": [],
   "author": "",
