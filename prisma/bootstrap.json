@@ -48,8 +48,12 @@
       "id": "4bd2127a-d7f5-4415-bacd-26f9b690edc1",
       "name": "resistance-for-reps",
       "measurables": [
-        { "id": "cfa7851a-cfa1-4e15-be6b-26f21ed79477" },
-        { "id": "1895a622-edcb-489f-8e52-1489492a0d9e" }
+        {
+          "id": "cfa7851a-cfa1-4e15-be6b-26f21ed79477"
+        },
+        {
+          "id": "1895a622-edcb-489f-8e52-1489492a0d9e"
+        }
       ],
       "description": "Standard resistance measurement. How many lbs/kgs or resistance for how many reps."
     },
@@ -57,9 +61,15 @@
       "id": "b94314cc-aaf6-483f-ad71-f239d51c0e23",
       "name": "static-hold-progression",
       "measurables": [
-        { "id": "51f33b56-a77f-4791-b15e-ff62ed925c57" },
-        { "id": "e7369c54-9386-4e28-a9b6-a7e4b6e3d797" },
-        { "id": "7692ef79-a043-4486-b295-f78dd4f7c25a" }
+        {
+          "id": "51f33b56-a77f-4791-b15e-ff62ed925c57"
+        },
+        {
+          "id": "e7369c54-9386-4e28-a9b6-a7e4b6e3d797"
+        },
+        {
+          "id": "1895a622-edcb-489f-8e52-1489492a0d9e"
+        }
       ],
       "description": "Measuring progression on static holds. How many lbs/kegs of assistance (if any), at what level of progression, for how long."
     }

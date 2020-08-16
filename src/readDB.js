@@ -14,6 +14,12 @@ async function main() {
     where: { id: "4bd2127a-d7f5-4415-bacd-26f9b690edc1" },
   });
   console.log("format: ", format);
+  const measurables = await prisma.format
+    .findOne({
+      where: { id: "4bd2127a-d7f5-4415-bacd-26f9b690edc1" },
+    })
+    .measurables();
+  console.log("measurables: ", measurables);
 
   const muscleImpacts = await prisma.muscleImpact.findMany();
   console.log("muscleImpacts: ", muscleImpacts);

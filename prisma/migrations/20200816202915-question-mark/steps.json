@@ -1,0 +1,196 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteModel",
+      "model": "Set"
+    },
+    {
+      "tag": "DeleteModel",
+      "model": "SetGroup"
+    },
+    {
+      "tag": "DeleteModel",
+      "model": "RoutineRevision"
+    },
+    {
+      "tag": "DeleteModel",
+      "model": "Routine"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Muscle",
+      "field": "muscleImpacts",
+      "type": "MuscleImpact",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Muscle",
+      "field": "MuscleImpact"
+    },
+    {
+      "tag": "CreateField",
+      "model": "MuscleImpact",
+      "field": "muscle",
+      "type": "Muscle",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "MuscleImpact",
+          "field": "muscle"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "MuscleImpact",
+          "field": "muscle"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[muscleId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "MuscleImpact",
+          "field": "muscle"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "MuscleImpact",
+      "field": "exercises",
+      "type": "Exercise",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "MuscleImpact",
+      "field": "Muscle"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "MuscleImpact",
+      "field": "Exercise"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Format",
+      "field": "exercises",
+      "type": "Exercise",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Format",
+      "field": "Exercise"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Exercise",
+      "field": "format",
+      "type": "Format",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Exercise",
+          "field": "format"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Exercise",
+          "field": "format"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[formatId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Exercise",
+          "field": "format"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Exercise",
+      "field": "muscleImpacts",
+      "type": "MuscleImpact",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Exercise",
+      "field": "Format"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Exercise",
+      "field": "Set"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Exercise",
+      "field": "MuscleImpact"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "Set"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "SetGroup"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "RoutineRevision"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "Routine"
+    }
+  ]
+}
