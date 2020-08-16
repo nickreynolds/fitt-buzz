@@ -1,0 +1,38 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "MuscleImpact",
+          "field": "exercises"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "DeleteDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Measurable",
+          "field": "formats"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "DeleteDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Format",
+          "field": "measurables"
+        },
+        "directive": "relation"
+      }
+    }
+  ]
+}

@@ -8,11 +8,6 @@ const config = require("../prisma/bootstrap.json");
 
 //3
 async function main() {
-  console.log("prisma: ", prisma);
-  const format = await prisma.format.findOne({
-    where: { id: "4bd2127a-d7f5-4415-bacd-26f9b690edc1" },
-  });
-  console.log("format: ", format);
   for (var i = 0; i < config.muscles.length; i++) {
     await prisma.muscle.upsert({
       where: {

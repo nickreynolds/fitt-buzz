@@ -1,0 +1,107 @@
+// 1
+datasource db {
+    provider = "postgresql"
+    url = "***"
+}
+
+// 2
+generator client {
+    provider = "prisma-client-js"
+}
+
+// 3
+
+model Muscle {
+    id           String         @id
+    createdAt    DateTime       @default(now())
+    name         String
+    description  String
+    MuscleImpact MuscleImpact[]
+}
+
+model MuscleImpact {
+    id           String     @id
+    muscle       Muscle     @relation(fields: [muscleId], references: [id])
+    impactRating Int
+    muscleId     String
+    exercises    Exercise[] @relation(references: [id])
+}
+
+model Measurable {
+    id      String   @id
+    name    String
+    formats Format[] @relation(references: [id])
+}
+
+model Format {
+    id          String       @id
+    createdAt   DateTime     @default(now())
+    name        String
+    description String
+    measurables Measurable[] @relation(references: [id])
+    exercises   Exercise[]
+}
+
+model Exercise {
+    id            String         @id
+    createdAt     DateTime       @default(now())
+    name          String
+    description   String
+    format        Format         @relation(fields: [formatId], references: [id])
+    muscleImpacts MuscleImpact[] @relation(references: [id])
+    createdBy     User?          @relation(fields: [createdById], references: [id])
+    createdById   String?
+    sets          Set[]
+    formatId      String
+}
+
+model Set {
+    id          String     @id
+    exercise    Exercise   @relation(fields: [exerciseId], references: [id])
+    restSeconds Int
+    exerciseId  String
+    createdBy   User       @relation(fields: [createdById], references: [id])
+    setGroups   SetGroup[]
+    createdById String
+}
+
+model SetGroup {
+    id               String            @id
+    sets             Set[]
+    routineRevisions RoutineRevision[]
+    createdBy        User              @relation(fields: [createdById], references: [id])
+    createdById      String
+}
+
+model RoutineRevision {
+    id          String     @id
+    createdAt   DateTime   @default(now())
+    routineBlob String
+    setGroups   SetGroup[]
+    routine     Routine?   @relation(fields: [routineId], references: [id])
+    routineId   String?
+    createdBy   User       @relation(fields: [createdById], references: [id])
+    createdById String
+}
+
+model Routine {
+    id          String            @id
+    createdAt   DateTime          @default(now())
+    name        String
+    description String
+    color       String
+    createdBy   User              @relation(fields: [createdById], references: [id])
+    createdById String
+    revisions   RoutineRevision[]
+}
+
+model User {
+    id              String            @id
+    username        String            @unique
+    password        String
+    routines        Routine[]
+    exercises       Exercise[]
+    Set             Set[]
+    SetGroup        SetGroup[]
+    RoutineRevision RoutineRevision[]
+}

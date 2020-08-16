@@ -1,7 +1,7 @@
 import { GraphQLServer } from "graphql-yoga";
 import { PrismaClient } from "@prisma/client";
 import Query from "./resolvers/Query";
-import Mutation from "./resolvers/Mutation";
+// import Mutation from "./resolvers/Mutation";
 import Routine from "./resolvers/Routine";
 import User from "./resolvers/User";
 
@@ -12,7 +12,7 @@ export interface Context {
 // 2
 const resolvers = {
   Query,
-  Mutation,
+  // Mutation,
   User,
   Routine,
 };
