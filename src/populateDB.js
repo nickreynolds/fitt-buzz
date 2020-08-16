@@ -77,34 +77,34 @@ async function main() {
         id: format.id,
         name: format.name,
         description: format.description,
-        // measurables: { connect: format.measurables },
+        measurables: { connect: format.measurables },
       },
       update: {
         name: config.formats[i].name,
         description: format.description,
-        // measurables: { connect: format.measurables },
+        measurables: { connect: format.measurables },
       },
     });
 
-    for (var j = 0; j < format.measurables.length; j++) {
-      const measurable = format.measurables[j];
-      await prisma.measurablesOnFormats.upsert({
-        where: {
-          formatId_measurableId: {
-            formatId: format.id,
-            measurableId: measurable.id,
-          },
-        },
-        create: {
-          format: { connect: { id: format.id } },
-          measurable: { connect: { id: measurable.id } },
-        },
-        update: {
-          format: { connect: { id: format.id } },
-          measurable: { connect: { id: measurable.id } },
-        },
-      });
-    }
+    // for (var j = 0; j < format.measurables.length; j++) {
+    //   const measurable = format.measurables[j];
+    //   await prisma.measurablesOnFormats.upsert({
+    //     where: {
+    //       formatId_measurableId: {
+    //         formatId: format.id,
+    //         measurableId: measurable.id,
+    //       },
+    //     },
+    //     create: {
+    //       format: { connect: { id: format.id } },
+    //       measurable: { connect: { id: measurable.id } },
+    //     },
+    //     update: {
+    //       format: { connect: { id: format.id } },
+    //       measurable: { connect: { id: measurable.id } },
+    //     },
+    //   });
+    // }
   }
 }
 

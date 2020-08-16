@@ -10,7 +10,7 @@ async function main() {
   const formats = await prisma.format.findMany();
   console.log("formats: ", formats);
 
-  const format = await prisma.format.findOne({
+  const format = prisma.format.findOne({
     where: { id: "4bd2127a-d7f5-4415-bacd-26f9b690edc1" },
   });
   console.log("format: ", format);
