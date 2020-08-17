@@ -1,0 +1,53 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "exercises",
+      "type": "Exercise",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "setGroups",
+      "type": "SetGroup",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "routineRevisions",
+      "type": "RoutineRevision",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "routines",
+      "type": "Routine",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "Exercise"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "SetGroup"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "RoutineRevision"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "Routine"
+    }
+  ]
+}

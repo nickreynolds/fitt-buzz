@@ -22,7 +22,8 @@
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^1.19.4",
     "rimraf": "^3.0.2",
-    "ts-node": "^8.10.2"
+    "ts-node": "^8.10.2",
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
     "@prisma/cli": "^2.4.1",

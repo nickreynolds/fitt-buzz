@@ -5,6 +5,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 const config = require("../prisma/bootstrap.json");
+const { format } = require("path");
 
 //3
 async function main() {
@@ -85,26 +86,110 @@ async function main() {
         measurables: { connect: format.measurables },
       },
     });
+  }
 
-    // for (var j = 0; j < format.measurables.length; j++) {
-    //   const measurable = format.measurables[j];
-    //   await prisma.measurablesOnFormats.upsert({
-    //     where: {
-    //       formatId_measurableId: {
-    //         formatId: format.id,
-    //         measurableId: measurable.id,
-    //       },
-    //     },
-    //     create: {
-    //       format: { connect: { id: format.id } },
-    //       measurable: { connect: { id: measurable.id } },
-    //     },
-    //     update: {
-    //       format: { connect: { id: format.id } },
-    //       measurable: { connect: { id: measurable.id } },
-    //     },
-    //   });
-    // }
+  for (var exercise of config.exercises) {
+    await prisma.exercise.upsert({
+      where: {
+        id: exercise.id,
+      },
+      create: {
+        id: exercise.id,
+        name: exercise.name,
+        description: exercise.description,
+        format: { connect: { id: exercise.format } },
+        muscleImpacts: {
+          connect: exercise.muscleImpacts.map((impact) => {
+            return { id: impact };
+          }),
+        },
+      },
+      update: {
+        name: exercise.name,
+        description: exercise.description,
+        format: { connect: { id: exercise.format } },
+        muscleImpacts: {
+          connect: exercise.muscleImpacts.map((impact) => {
+            return { id: impact };
+          }),
+        },
+      },
+    });
+  }
+
+  for (var setGroup of config.setGroups) {
+    await prisma.setGroup.upsert({
+      where: {
+        id: setGroup.id,
+      },
+      create: {
+        id: setGroup.id,
+        exercises: {
+          connect: setGroup.exercises.map((exercise) => {
+            return { id: exercise };
+          }),
+        },
+        defaultNumSets: setGroup.defaultNumSets,
+      },
+      update: {
+        exercises: {
+          connect: setGroup.exercises.map((exercise) => {
+            return { id: exercise };
+          }),
+        },
+        defaultNumSets: setGroup.defaultNumSets,
+      },
+    });
+  }
+
+  for (var routineRevision of config.routineRevisions) {
+    await prisma.routineRevision.upsert({
+      where: {
+        id: routineRevision.id,
+      },
+      create: {
+        id: routineRevision.id,
+        setGroups: {
+          connect: routineRevision.setGroups.map((setGroup) => {
+            return { id: setGroup };
+          }),
+        },
+      },
+      update: {
+        setGroups: {
+          connect: routineRevision.setGroups.map((setGroup) => {
+            return { id: setGroup };
+          }),
+        },
+      },
+    });
+  }
+
+  for (var routine of config.routines) {
+    await prisma.routine.upsert({
+      where: {
+        id: routine.id,
+      },
+      create: {
+        id: routine.id,
+        revisions: {
+          connect: routine.revisions.map((revision) => {
+            return { id: revision };
+          }),
+        },
+        name: routine.name,
+        description: routine.description,
+      },
+      update: {
+        revisions: {
+          connect: routine.revisions.map((revision) => {
+            return { id: revision };
+          }),
+        },
+        name: routine.name,
+        description: routine.description,
+      },
+    });
   }
 }
 

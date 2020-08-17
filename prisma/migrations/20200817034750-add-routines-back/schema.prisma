@@ -5,7 +5,7 @@ generator client {
 ///
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 model Exercise {
@@ -15,7 +15,7 @@ model Exercise {
   formatId      String
   id            String         @id
   name          String
-  createdBy     User?          @relation(fields: [createdById], references: [id])
+  User          User?          @relation(fields: [createdById], references: [id])
   format        Format         @relation(fields: [formatId], references: [id])
   muscleImpacts MuscleImpact[]
   setGroups     SetGroup[]
@@ -25,7 +25,7 @@ model SetGroup {
   createdAt        DateTime          @default(now())
   createdById      String?
   id               String            @id
-  createdBy        User?             @relation(fields: [createdById], references: [id])
+  User             User?             @relation(fields: [createdById], references: [id])
   exercises        Exercise[] // usually will just have 1, but could have multiple to create "super sets"
   defaultNumSets   Int
   routineRevisions RoutineRevision[]
@@ -35,23 +35,20 @@ model RoutineRevision {
   createdAt   DateTime   @default(now())
   createdById String?
   id          String     @id
-  createdBy   User?      @relation(fields: [createdById], references: [id])
+  User        User?      @relation(fields: [createdById], references: [id])
   setGroups   SetGroup[]
   Routine     Routine?   @relation(fields: [routineId], references: [id])
   routineId   String?
 }
 
 model Routine {
-  createdAt        DateTime          @default(now())
-  createdById      String?
-  id               String            @id
-  createdBy        User?             @relation(fields: [createdById], references: [id])
-  revisions        RoutineRevision[]
-  name             String
-  description      String
-  cloneOf          Routine?          @relation("RoutineToRoutine", fields: [cloneOfRoutineId], references: [id])
-  clones           Routine[]         @relation("RoutineToRoutine")
-  cloneOfRoutineId String?
+  createdAt   DateTime          @default(now())
+  createdById String?
+  id          String            @id
+  User        User?             @relation(fields: [createdById], references: [id])
+  revisions   RoutineRevision[]
+  name        String
+  description String
 }
 
 model Format {
@@ -86,11 +83,11 @@ model MuscleImpact {
 }
 
 model User {
-  id               String            @id
-  password         String
-  username         String            @unique
-  exercises        Exercise[]
-  setGroups        SetGroup[]
-  routineRevisions RoutineRevision[]
-  routines         Routine[]
+  id              String            @id
+  password        String
+  username        String            @unique
+  Exercise        Exercise[]
+  SetGroup        SetGroup[]
+  RoutineRevision RoutineRevision[]
+  Routine         Routine[]
 }

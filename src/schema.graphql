@@ -1,7 +1,9 @@
 type Query {
   info: String!
-  feed: [Routine!]!
-  exercises: [Exercise!]!
+  feed: [Routine!]
+  myRoutines: [Routine!]
+  exercises: [Exercise!]
+  routine(id: String!): Routine
 }
 
 type Mutation {
@@ -15,40 +17,47 @@ type Mutation {
     name: String!
     description: String!
     format: String!
+    muscleImpacts: [String!]
   ): Exercise!
-  createSet(exerciseID: String!, restSeconds: Int!): Set!
-  createSetGroup: Set!
   signup(username: String!, password: String!): AuthPayload
   login(username: String!, password: String!): AuthPayload
+  cloneRoutineAtRevision(routineId: String!, revisionId: String!): Routine!
 }
 
 type Exercise {
   id: ID!
   name: String!
   description: String!
-  format: String!
+  format: Format!
   createdBy: User!
-  sets: [Set]
+  muscleImpacts: [MuscleImpact]
 }
 
-type Set {
+type MuscleImpact {
   id: ID!
-  exercise: Exercise!
-  restSeconds: Int!
-  createdBy: User!
-  setGroups: [SetGroup]
+  impactRating: Int!
+  muscle: Muscle!
+}
+
+type Format {
+  name: String!
+  description: String!
+}
+
+type Muscle {
+  id: ID!
+  name: String!
 }
 
 type SetGroup {
   id: ID!
-  createdBy: User!
-  sets: [Set]
+  exercises: [Exercise]
+  defaultNumSets: Int
 }
 
 type RoutineRevision {
   id: ID!
   setGroups: [SetGroup]
-  createdBy: User!
   routine: Routine
 }
 
@@ -56,7 +65,7 @@ type Routine {
   id: ID!
   description: String!
   name: String!
-  createdBy: User!
+  revisions: [RoutineRevision]
 }
 
 type AuthPayload {

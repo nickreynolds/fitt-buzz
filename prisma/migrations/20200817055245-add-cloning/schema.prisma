@@ -5,7 +5,7 @@ generator client {
 ///
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 model Exercise {
@@ -86,11 +86,11 @@ model MuscleImpact {
 }
 
 model User {
-  id               String            @id
-  password         String
-  username         String            @unique
-  exercises        Exercise[]
-  setGroups        SetGroup[]
-  routineRevisions RoutineRevision[]
-  routines         Routine[]
+  id              String            @id
+  password        String
+  username        String            @unique
+  Exercise        Exercise[]
+  SetGroup        SetGroup[]
+  RoutineRevision RoutineRevision[]
+  Routine         Routine[]
 }

@@ -1,0 +1,104 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Routine",
+      "field": "cloneOf",
+      "type": "Routine",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Routine",
+          "field": "cloneOf"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Routine",
+          "field": "cloneOf"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"RoutineToRoutine\""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Routine",
+          "field": "cloneOf"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[cloneOfRoutineId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Routine",
+          "field": "cloneOf"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Routine",
+      "field": "clones",
+      "type": "Routine",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Routine",
+          "field": "clones"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Routine",
+          "field": "clones"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"RoutineToRoutine\""
+    },
+    {
+      "tag": "CreateField",
+      "model": "Routine",
+      "field": "cloneOfRoutineId",
+      "type": "String",
+      "arity": "Optional"
+    }
+  ]
+}

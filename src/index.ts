@@ -1,9 +1,13 @@
 import { GraphQLServer } from "graphql-yoga";
 import { PrismaClient } from "@prisma/client";
 import Query from "./resolvers/Query";
-// import Mutation from "./resolvers/Mutation";
+import Mutation from "./resolvers/Mutation";
 import Routine from "./resolvers/Routine";
+import RoutineRevision from "./resolvers/RoutineRevision";
 import User from "./resolvers/User";
+import Exercise from "./resolvers/Exercise";
+import MuscleImpact from "./resolvers/MuscleImpact";
+import SetGroup from "./resolvers/SetGroup";
 
 export interface Context {
   prisma: PrismaClient;
@@ -12,9 +16,13 @@ export interface Context {
 // 2
 const resolvers = {
   Query,
-  // Mutation,
+  Mutation,
   User,
+  RoutineRevision,
   Routine,
+  Exercise,
+  MuscleImpact,
+  SetGroup,
 };
 
 const prisma = new PrismaClient();
