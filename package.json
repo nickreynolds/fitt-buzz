@@ -23,14 +23,14 @@
     "nodemon": "^1.19.4",
     "rimraf": "^3.0.2",
     "ts-node": "^8.10.2",
-    "uuid": "^8.3.0"
+    "uuid": "^8.3.0",
+    "typescript": "^3.9.6"
   },
   "devDependencies": {
     "@prisma/cli": "^2.4.1",
     "@types/bcryptjs": "2.4.2",
     "@types/node": "10.17.26",
-    "dotenv-cli": "^1.4.0",
-    "typescript": "^3.9.6"
+    "dotenv-cli": "^1.4.0"
   },
   "engines": {
     "node": "12.x"
