@@ -49,8 +49,6 @@ async function login(parent: any, args: any, context: Context, info: any) {
 
 function createExercise(parent: any, args: any, context: Context, info: any) {
   const userId = getUserId(context);
-  console.log("createExercise args: ", args);
-  console.log("createExercise userId: ", userId);
 
   return context.prisma.exercise.create({
     data: {
@@ -145,4 +143,5 @@ export default {
   signup,
   login,
   createExercise,
+  cloneRoutineAtRevision,
 };

@@ -19,6 +19,21 @@
       "id": "3ce61d53-b00b-4b4b-abe7-76950c99b4cd",
       "name": "Latissimus dorsi",
       "description": "The latissimus dorsi (/ləˈtɪsɪməs ˈdɔːrsaɪ/) is a large, flat muscle on the back that stretches to the sides, behind the arm, and is partly covered by the trapezius on the back near the midline. The word latissimus dorsi (plural: latissimi dorsi) comes from Latin and means \"broadest [muscle] of the back\", from \"latissimus\" (Latin: broadest)' and \"dorsum\" (Latin: back). The pair of muscles are commonly known as \"lats\", especially among bodybuilders."
+    },
+    {
+      "id": "f6f0eaab-06aa-4434-904c-50ce806376fe",
+      "name": "Trapezius",
+      "description": "The trapezius is a large paired surface muscle that extends longitudinally from the occipital bone to the lower thoracic vertebrae of the spine and laterally to the spine of the scapula. It moves the scapula and supports the arm."
+    },
+    {
+      "id": "076febe2-f661-42a1-9863-53e98fe8ba10",
+      "name": "Serratus Anterior Muscle",
+      "description": "The serratus anterior is a muscle that originates on the surface of the 1st to 8th ribs at the side of the chest and inserts along the entire anterior length of the medial border of the scapula. The serratus anterior acts to pull the scapula forward around the thorax. The muscle is named from Latin: serrare = to saw, referring to the shape, anterior = on the front side of the body."
+    },
+    {
+      "id": "d5264c5c-214f-4c3f-9483-9f3ae05eb6ad",
+      "name": "Rectus Abdominal",
+      "description": "The rectus abdominis muscle, also known as the \"abdominal muscle\", is a paired muscle running vertically on each side of the anterior wall of the human abdomen, as well as that of some other mammals. There are two parallel muscles, separated by a midline band of connective tissue called the linea alba. It extends from the pubic symphysis, pubic crest and pubic tubercle inferiorly, to the xiphoid process and costal cartilages of ribs V to VII superiorly. The proximal attachments are the pubic crest and the pubic symphysis. It attaches distally at the costal cartilages of ribs 5-7 and the xiphoid process of the sternum."
     }
   ],
   "measurables": [
@@ -56,6 +71,16 @@
         }
       ],
       "description": "Standard resistance measurement. How many lbs/kgs or resistance for how many reps."
+    },
+    {
+      "id": "7f737300-3236-4abe-a02b-68c4f964e45e",
+      "name": "reps",
+      "measurables": [
+        {
+          "id": "1895a622-edcb-489f-8e52-1489492a0d9e"
+        }
+      ],
+      "description": "How many reps."
     },
     {
       "id": "3dfd8a89-62d1-4b51-be0b-a677f98290f0",
@@ -118,6 +143,34 @@
         "3ce61d53-b00b-4b4b-abe7-76950c99b4cd-2",
         "7c492611-71aa-4968-b35f-d490fbda621f-1"
       ]
+    },
+    {
+      "id": "132b608e-c805-4c3e-937f-257c61d9ab69",
+      "name": "Trap 3-raise",
+      "description": "Bend over. Arms out slightly, raise up. Maybe use super-light weight.",
+      "format": "4bd2127a-d7f5-4415-bacd-26f9b690edc1",
+      "muscleImpacts": ["f6f0eaab-06aa-4434-904c-50ce806376fe-1"]
+    },
+    {
+      "id": "4b610174-ce36-429c-9064-7ebf8172e348",
+      "name": "Shoulder External Rotation",
+      "description": "Sit Down, weird style. Put elbow on one knee. Rotate hand up.",
+      "format": "4bd2127a-d7f5-4415-bacd-26f9b690edc1",
+      "muscleImpacts": ["f6f0eaab-06aa-4434-904c-50ce806376fe-1"]
+    },
+    {
+      "id": "a18aee9c-2e25-4249-9a94-b87e9fca9319",
+      "name": "Serratus Wall Slides",
+      "description": "Face wall. Slightly away. Pinky side of hands against wall, slide them up.",
+      "format": "4bd2127a-d7f5-4415-bacd-26f9b690edc1",
+      "muscleImpacts": ["076febe2-f661-42a1-9863-53e98fe8ba10-1"]
+    },
+    {
+      "id": "1b5c2b10-f4b9-4646-8a85-bfe9659dade1",
+      "name": "Deadbugs",
+      "description": "Type of Hollow hold progression. You know. Deadbugs.",
+      "format": "b94314cc-aaf6-483f-ad71-f239d51c0e23",
+      "muscleImpacts": ["d5264c5c-214f-4c3f-9483-9f3ae05eb6ad-1"]
     }
   ],
   "setGroups": [
@@ -135,6 +188,36 @@
       "id": "73a93d79-e7e5-4bb7-a48b-9e34cacf5305",
       "exercises": ["bc122944-fcf1-4902-9193-4bb6a6c16d76"],
       "defaultNumSets": 6
+    },
+    {
+      "id": "7b21d133-e7ce-437c-a8c8-27999c038bd5",
+      "exercises": ["132b608e-c805-4c3e-937f-257c61d9ab69"],
+      "defaultNumSets": 2
+    },
+    {
+      "id": "21594b5e-6267-4fc8-87a1-63a94726912b",
+      "exercises": ["4b610174-ce36-429c-9064-7ebf8172e348"],
+      "defaultNumSets": 2
+    },
+    {
+      "id": "dcf2fcd9-d15f-4bc8-b59f-b7fac68f17f4",
+      "exercises": ["a18aee9c-2e25-4249-9a94-b87e9fca9319"],
+      "defaultNumSets": 2
+    },
+    {
+      "id": "cb015a02-32eb-4ce5-b204-aa067aa9a94c",
+      "exercises": ["1b5c2b10-f4b9-4646-8a85-bfe9659dade1"],
+      "defaultNumSets": 1
+    },
+    {
+      "id": "79784e82-bdea-42fd-96f1-2cd076bf0636",
+      "exercises": [
+        "132b608e-c805-4c3e-937f-257c61d9ab69",
+        "4b610174-ce36-429c-9064-7ebf8172e348",
+        "a18aee9c-2e25-4249-9a94-b87e9fca9319",
+        "1b5c2b10-f4b9-4646-8a85-bfe9659dade1"
+      ],
+      "defaultNumSets": 2
     }
   ],
   "routineRevisions": [
@@ -151,6 +234,14 @@
         "adab2abf-8800-4110-ab5f-b9fa74d56efd",
         "73a93d79-e7e5-4bb7-a48b-9e34cacf5305"
       ]
+    },
+    {
+      "id": "6c4277af-282b-4479-8958-9765437b8c30",
+      "setGroups": [
+        "79784e82-bdea-42fd-96f1-2cd076bf0636",
+        "adab2abf-8800-4110-ab5f-b9fa74d56efd",
+        "73a93d79-e7e5-4bb7-a48b-9e34cacf5305"
+      ]
     }
   ],
   "routines": [
@@ -160,7 +251,8 @@
       "id": "7586832a-9b71-47c2-b27e-782528a93a27",
       "revisions": [
         "5e3bc5ce-01a2-42d5-9a0e-e85715979379",
-        "117131e3-6613-4d0e-a4ed-81916efbc469"
+        "117131e3-6613-4d0e-a4ed-81916efbc469",
+        "6c4277af-282b-4479-8958-9765437b8c30"
       ]
     }
   ]

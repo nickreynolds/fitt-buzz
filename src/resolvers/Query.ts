@@ -44,4 +44,5 @@ export default {
   feed,
   routine,
   exercises,
+  myRoutines,
 };
