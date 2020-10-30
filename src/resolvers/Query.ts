@@ -38,7 +38,12 @@ async function exercises(
   info: any
 ): Promise<any[]> {
   console.log("try");
-  return context.prisma.exercise.findMany();
+  try {
+    return context.prisma.exercise.findMany();
+  } catch (ex) {
+    console.log("ex: ", ex);
+  }
+  return [];
 }
 
 export default {
