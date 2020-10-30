@@ -91,35 +91,48 @@ async function cloneRoutineAtRevision(
     throw new Error("Revision not found in Routine! You trying to cheat me??");
   }
 
-  const setGroups = await context.prisma.routineRevision
+  const setGroupPlacements = await context.prisma.routineRevision
     .findOne({ where: { id: args.revisionId } })
-    .setGroups();
-  var newSetGroups = [];
-  for (var setGroup of setGroups) {
+    .setGroupPlacements();
+  var newSetGroupPlacements = [];
+  for (var setGroupPlacement of setGroupPlacements) {
+    // const setGroup = await context.prisma.setGroup.findOne({where: {id: setGroupPlacement.setGroupId}})
     const exercises = await context.prisma.setGroup
-      .findOne({ where: { id: setGroup.id } })
+      .findOne({ where: { id: setGroupPlacement.setGroupId } })
       .exercises();
+    const newSetGroupId = uuidv4();
     const newSetGroup = await context.prisma.setGroup.create({
       data: {
-        id: uuidv4(),
+        id: newSetGroupId,
         exercises: {
           connect: exercises.map((exercise) => {
             return { id: exercise.id };
           }),
         },
-        defaultNumSets: setGroup.defaultNumSets,
+        defaultNumSets: (
+          await context.prisma.setGroup.findOne({
+            where: { id: setGroupPlacement.setGroupId },
+          })
+        ).defaultNumSets,
       },
     });
-    newSetGroups.push(newSetGroup);
+    const newSetGroupPlacement = await context.prisma.setGroupPlacement.create({
+      data: {
+        id: uuidv4(),
+        setGroup: { connect: { id: newSetGroupId } },
+        placement: setGroupPlacement.placement,
+      },
+    });
+    newSetGroupPlacements.push(newSetGroupPlacement);
   }
 
   const revision = await context.prisma.routineRevision.create({
     data: {
       id: uuidv4(),
       createdBy: { connect: { id: userId } },
-      setGroups: {
-        connect: newSetGroups.map((setGroup) => {
-          return { id: setGroup.id };
+      setGroupPlacements: {
+        connect: setGroupPlacements.map((setGroupPlacement) => {
+          return { id: setGroupPlacement.id };
         }),
       },
     },

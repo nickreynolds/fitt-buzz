@@ -1,11 +1,15 @@
 import { Context } from "../";
 
-function setGroups(parent: any, args: any, context: Context) {
-  return context.prisma.routineRevision
+async function setGroupPlacements(parent: any, args: any, context: Context) {
+  const placements = await context.prisma.routineRevision
     .findOne({ where: { id: parent.id } })
-    .setGroups();
+    .setGroupPlacements();
+
+  return placements.sort((a, b) => {
+    return a.placement - b.placement;
+  });
 }
 
 export default {
-  setGroups,
+  setGroupPlacements,
 };

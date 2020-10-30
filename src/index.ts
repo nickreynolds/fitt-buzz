@@ -8,6 +8,7 @@ import User from "./resolvers/User";
 import Exercise from "./resolvers/Exercise";
 import MuscleImpact from "./resolvers/MuscleImpact";
 import SetGroup from "./resolvers/SetGroup";
+import SetGroupPlacement from "./resolvers/SetGroupPlacement";
 
 export interface Context {
   prisma: PrismaClient;
@@ -23,6 +24,7 @@ const resolvers = {
   Exercise,
   MuscleImpact,
   SetGroup,
+  SetGroupPlacement,
 };
 
 const prisma = new PrismaClient();

@@ -25,396 +25,11 @@
     },
     {
       "tag": "CreateModel",
-      "model": "Muscle"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Muscle",
-      "field": "id",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Muscle",
-          "field": "id"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "Muscle",
-      "field": "createdAt",
-      "type": "DateTime",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Muscle",
-          "field": "createdAt"
-        },
-        "directive": "default"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Muscle",
-          "field": "createdAt"
-        },
-        "directive": "default"
-      },
-      "argument": "",
-      "value": "now()"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Muscle",
-      "field": "name",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Muscle",
-      "field": "description",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Muscle",
-      "field": "MuscleImpact",
-      "type": "MuscleImpact",
-      "arity": "List"
-    },
-    {
-      "tag": "CreateModel",
-      "model": "MuscleImpact"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MuscleImpact",
-      "field": "id",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "MuscleImpact",
-          "field": "id"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "MuscleImpact",
-      "field": "muscle",
-      "type": "Muscle",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "MuscleImpact",
-          "field": "muscle"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MuscleImpact",
-          "field": "muscle"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[muscleId]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MuscleImpact",
-          "field": "muscle"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MuscleImpact",
-      "field": "impactRating",
-      "type": "Int",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MuscleImpact",
-      "field": "muscleId",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MuscleImpact",
-      "field": "Exercise",
-      "type": "Exercise",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "MuscleImpact",
-          "field": "Exercise"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MuscleImpact",
-          "field": "Exercise"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[exerciseId]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MuscleImpact",
-          "field": "Exercise"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MuscleImpact",
-      "field": "exerciseId",
-      "type": "String",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateModel",
-      "model": "Measurable"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Measurable",
-      "field": "id",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Measurable",
-          "field": "id"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "Measurable",
-      "field": "name",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Measurable",
-      "field": "Exercise",
-      "type": "Exercise",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Measurable",
-          "field": "Exercise"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Measurable",
-          "field": "Exercise"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[exerciseId]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Measurable",
-          "field": "Exercise"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Measurable",
-      "field": "exerciseId",
-      "type": "String",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateModel",
-      "model": "Format"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Format",
-      "field": "id",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Format",
-          "field": "id"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "Format",
-      "field": "createdAt",
-      "type": "DateTime",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Format",
-          "field": "createdAt"
-        },
-        "directive": "default"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Format",
-          "field": "createdAt"
-        },
-        "directive": "default"
-      },
-      "argument": "",
-      "value": "now()"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Format",
-      "field": "name",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Format",
-      "field": "description",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Format",
-      "field": "Exercise",
-      "type": "Exercise",
-      "arity": "List"
-    },
-    {
-      "tag": "CreateModel",
       "model": "Exercise"
     },
     {
       "tag": "CreateField",
       "model": "Exercise",
-      "field": "id",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Exercise",
-          "field": "id"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "Exercise",
       "field": "createdAt",
       "type": "DateTime",
       "arity": "Required"
@@ -447,9 +62,9 @@
     {
       "tag": "CreateField",
       "model": "Exercise",
-      "field": "name",
+      "field": "createdById",
       "type": "String",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
@@ -457,6 +72,84 @@
       "field": "description",
       "type": "String",
       "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Exercise",
+      "field": "formatId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Exercise",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Exercise",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Exercise",
+      "field": "name",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Exercise",
+      "field": "createdBy",
+      "type": "User",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Exercise",
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Exercise",
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[createdById]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Exercise",
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
     },
     {
       "tag": "CreateField",
@@ -514,218 +207,9 @@
     {
       "tag": "CreateField",
       "model": "Exercise",
-      "field": "createdBy",
-      "type": "User",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Exercise",
-          "field": "createdBy"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Exercise",
-          "field": "createdBy"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[createdById]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Exercise",
-          "field": "createdBy"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Exercise",
-      "field": "createdById",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Exercise",
-      "field": "sets",
-      "type": "Set",
-      "arity": "List"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Exercise",
-      "field": "formatId",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Exercise",
-      "field": "measurables",
-      "type": "Measurable",
-      "arity": "List"
-    },
-    {
-      "tag": "CreateModel",
-      "model": "Set"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Set",
-      "field": "id",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Set",
-          "field": "id"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "Set",
-      "field": "exercise",
-      "type": "Exercise",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Set",
-          "field": "exercise"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Set",
-          "field": "exercise"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[exerciseId]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Set",
-          "field": "exercise"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Set",
-      "field": "restSeconds",
-      "type": "Int",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Set",
-      "field": "exerciseId",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Set",
-      "field": "createdBy",
-      "type": "User",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Set",
-          "field": "createdBy"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Set",
-          "field": "createdBy"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[createdById]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Set",
-          "field": "createdBy"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Set",
       "field": "setGroups",
       "type": "SetGroup",
       "arity": "List"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Set",
-      "field": "createdById",
-      "type": "String",
-      "arity": "Required"
     },
     {
       "tag": "CreateModel",
@@ -734,6 +218,45 @@
     {
       "tag": "CreateField",
       "model": "SetGroup",
+      "field": "createdAt",
+      "type": "DateTime",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "SetGroup",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "SetGroup",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "now()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroup",
+      "field": "createdById",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroup",
       "field": "id",
       "type": "String",
       "arity": "Required"
@@ -752,23 +275,9 @@
     {
       "tag": "CreateField",
       "model": "SetGroup",
-      "field": "sets",
-      "type": "Set",
-      "arity": "List"
-    },
-    {
-      "tag": "CreateField",
-      "model": "SetGroup",
-      "field": "routineRevisions",
-      "type": "RoutineRevision",
-      "arity": "List"
-    },
-    {
-      "tag": "CreateField",
-      "model": "SetGroup",
       "field": "createdBy",
       "type": "User",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateDirective",
@@ -812,17 +321,31 @@
     {
       "tag": "CreateField",
       "model": "SetGroup",
-      "field": "createdById",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateModel",
-      "model": "RoutineRevision"
+      "field": "exercises",
+      "type": "Exercise",
+      "arity": "List"
     },
     {
       "tag": "CreateField",
-      "model": "RoutineRevision",
+      "model": "SetGroup",
+      "field": "defaultNumSets",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroup",
+      "field": "SetGroupPlacement",
+      "type": "SetGroupPlacement",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "SetGroupPlacement"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupPlacement",
       "field": "id",
       "type": "String",
       "arity": "Required"
@@ -832,11 +355,82 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "RoutineRevision",
+          "model": "SetGroupPlacement",
           "field": "id"
         },
         "directive": "id"
       }
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupPlacement",
+      "field": "setGroup",
+      "type": "SetGroup",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupPlacement",
+          "field": "setGroup"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupPlacement",
+          "field": "setGroup"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[setGroupId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupPlacement",
+          "field": "setGroup"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupPlacement",
+      "field": "placement",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupPlacement",
+      "field": "routineRevisions",
+      "type": "RoutineRevision",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupPlacement",
+      "field": "setGroupId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "RoutineRevision"
     },
     {
       "tag": "CreateField",
@@ -873,22 +467,33 @@
     {
       "tag": "CreateField",
       "model": "RoutineRevision",
-      "field": "routineBlob",
+      "field": "createdById",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "RoutineRevision",
+      "field": "id",
       "type": "String",
       "arity": "Required"
     },
     {
-      "tag": "CreateField",
-      "model": "RoutineRevision",
-      "field": "setGroups",
-      "type": "SetGroup",
-      "arity": "List"
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "RoutineRevision",
+          "field": "id"
+        },
+        "directive": "id"
+      }
     },
     {
       "tag": "CreateField",
       "model": "RoutineRevision",
-      "field": "routine",
-      "type": "Routine",
+      "field": "createdBy",
+      "type": "User",
       "arity": "Optional"
     },
     {
@@ -897,7 +502,7 @@
         "path": {
           "tag": "Field",
           "model": "RoutineRevision",
-          "field": "routine"
+          "field": "createdBy"
         },
         "directive": "relation"
       }
@@ -909,7 +514,60 @@
         "path": {
           "tag": "Field",
           "model": "RoutineRevision",
-          "field": "routine"
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[createdById]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "RoutineRevision",
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "RoutineRevision",
+      "field": "setGroupPlacements",
+      "type": "SetGroupPlacement",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "RoutineRevision",
+      "field": "Routine",
+      "type": "Routine",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "RoutineRevision",
+          "field": "Routine"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "RoutineRevision",
+          "field": "Routine"
         },
         "directive": "relation"
       },
@@ -923,7 +581,7 @@
         "path": {
           "tag": "Field",
           "model": "RoutineRevision",
-          "field": "routine"
+          "field": "Routine"
         },
         "directive": "relation"
       },
@@ -938,79 +596,8 @@
       "arity": "Optional"
     },
     {
-      "tag": "CreateField",
-      "model": "RoutineRevision",
-      "field": "createdBy",
-      "type": "User",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "RoutineRevision",
-          "field": "createdBy"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "RoutineRevision",
-          "field": "createdBy"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[createdById]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "RoutineRevision",
-          "field": "createdBy"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "RoutineRevision",
-      "field": "createdById",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
       "tag": "CreateModel",
       "model": "Routine"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Routine",
-      "field": "id",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Routine",
-          "field": "id"
-        },
-        "directive": "id"
-      }
     },
     {
       "tag": "CreateField",
@@ -1043,6 +630,84 @@
       },
       "argument": "",
       "value": "now()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Routine",
+      "field": "createdById",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Routine",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Routine",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Routine",
+      "field": "createdBy",
+      "type": "User",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Routine",
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Routine",
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[createdById]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Routine",
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Routine",
+      "field": "revisions",
+      "type": "RoutineRevision",
+      "arity": "List"
     },
     {
       "tag": "CreateField",
@@ -1061,16 +726,9 @@
     {
       "tag": "CreateField",
       "model": "Routine",
-      "field": "color",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Routine",
-      "field": "createdBy",
-      "type": "User",
-      "arity": "Required"
+      "field": "cloneOf",
+      "type": "Routine",
+      "arity": "Optional"
     },
     {
       "tag": "CreateDirective",
@@ -1078,7 +736,7 @@
         "path": {
           "tag": "Field",
           "model": "Routine",
-          "field": "createdBy"
+          "field": "cloneOf"
         },
         "directive": "relation"
       }
@@ -1090,12 +748,12 @@
         "path": {
           "tag": "Field",
           "model": "Routine",
-          "field": "createdBy"
+          "field": "cloneOf"
         },
         "directive": "relation"
       },
-      "argument": "fields",
-      "value": "[createdById]"
+      "argument": "",
+      "value": "\"RoutineToRoutine\""
     },
     {
       "tag": "CreateArgument",
@@ -1104,7 +762,21 @@
         "path": {
           "tag": "Field",
           "model": "Routine",
-          "field": "createdBy"
+          "field": "cloneOf"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[cloneOfRoutineId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Routine",
+          "field": "cloneOf"
         },
         "directive": "relation"
       },
@@ -1114,15 +786,322 @@
     {
       "tag": "CreateField",
       "model": "Routine",
-      "field": "createdById",
+      "field": "clones",
+      "type": "Routine",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Routine",
+          "field": "clones"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Routine",
+          "field": "clones"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"RoutineToRoutine\""
+    },
+    {
+      "tag": "CreateField",
+      "model": "Routine",
+      "field": "cloneOfRoutineId",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "Format"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Format",
+      "field": "createdAt",
+      "type": "DateTime",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Format",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Format",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "now()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Format",
+      "field": "description",
       "type": "String",
       "arity": "Required"
     },
     {
       "tag": "CreateField",
-      "model": "Routine",
-      "field": "revisions",
-      "type": "RoutineRevision",
+      "model": "Format",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Format",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Format",
+      "field": "name",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Format",
+      "field": "exercises",
+      "type": "Exercise",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Format",
+      "field": "measurables",
+      "type": "Measurable",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "Measurable"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Measurable",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Measurable",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Measurable",
+      "field": "name",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Measurable",
+      "field": "formats",
+      "type": "Format",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "Muscle"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Muscle",
+      "field": "createdAt",
+      "type": "DateTime",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Muscle",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Muscle",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "now()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Muscle",
+      "field": "description",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Muscle",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Muscle",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Muscle",
+      "field": "name",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Muscle",
+      "field": "muscleImpacts",
+      "type": "MuscleImpact",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "MuscleImpact"
+    },
+    {
+      "tag": "CreateField",
+      "model": "MuscleImpact",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "MuscleImpact",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "MuscleImpact",
+      "field": "impactRating",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "MuscleImpact",
+      "field": "muscleId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "MuscleImpact",
+      "field": "muscle",
+      "type": "Muscle",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "MuscleImpact",
+          "field": "muscle"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "MuscleImpact",
+          "field": "muscle"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[muscleId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "MuscleImpact",
+          "field": "muscle"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "MuscleImpact",
+      "field": "exercises",
+      "type": "Exercise",
       "arity": "List"
     },
     {
@@ -1150,6 +1129,13 @@
     {
       "tag": "CreateField",
       "model": "User",
+      "field": "password",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
       "field": "username",
       "type": "String",
       "arity": "Required"
@@ -1168,20 +1154,6 @@
     {
       "tag": "CreateField",
       "model": "User",
-      "field": "password",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "User",
-      "field": "routines",
-      "type": "Routine",
-      "arity": "List"
-    },
-    {
-      "tag": "CreateField",
-      "model": "User",
       "field": "exercises",
       "type": "Exercise",
       "arity": "List"
@@ -1189,22 +1161,22 @@
     {
       "tag": "CreateField",
       "model": "User",
-      "field": "Set",
-      "type": "Set",
-      "arity": "List"
-    },
-    {
-      "tag": "CreateField",
-      "model": "User",
-      "field": "SetGroup",
+      "field": "setGroups",
       "type": "SetGroup",
       "arity": "List"
     },
     {
       "tag": "CreateField",
       "model": "User",
-      "field": "RoutineRevision",
+      "field": "routineRevisions",
       "type": "RoutineRevision",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "routines",
+      "type": "Routine",
       "arity": "List"
     }
   ]

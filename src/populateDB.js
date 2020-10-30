@@ -143,22 +143,40 @@ async function main() {
   }
 
   for (var routineRevision of config.routineRevisions) {
+    routineRevision.setGroups.map(async (setGroup, i) => {
+      console.log("add setgroup placement");
+      await prisma.setGroupPlacement.upsert({
+        where: {
+          id: i + "-" + setGroup,
+        },
+        create: {
+          id: i + "-" + setGroup,
+          setGroup: { connect: { id: setGroup } },
+          placement: i,
+        },
+        update: {
+          setGroup: { connect: { id: setGroup } },
+          placement: i,
+        },
+      });
+    });
+
     await prisma.routineRevision.upsert({
       where: {
         id: routineRevision.id,
       },
       create: {
         id: routineRevision.id,
-        setGroups: {
-          connect: routineRevision.setGroups.map((setGroup) => {
-            return { id: setGroup };
+        setGroupPlacements: {
+          connect: routineRevision.setGroups.map((setGroup, i) => {
+            return { id: i + "-" + setGroup };
           }),
         },
       },
       update: {
-        setGroups: {
-          connect: routineRevision.setGroups.map((setGroup) => {
-            return { id: setGroup };
+        setGroupPlacements: {
+          connect: routineRevision.setGroups.map((setGroup, i) => {
+            return { id: i + "-" + setGroup };
           }),
         },
       },

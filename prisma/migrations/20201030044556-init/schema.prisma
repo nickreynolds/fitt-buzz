@@ -22,23 +22,31 @@ model Exercise {
 }
 
 model SetGroup {
-  createdAt        DateTime          @default(now())
-  createdById      String?
+  createdAt         DateTime            @default(now())
+  createdById       String?
+  id                String              @id
+  createdBy         User?               @relation(fields: [createdById], references: [id])
+  exercises         Exercise[] // usually will just have 1, but could have multiple to create "super sets"
+  defaultNumSets    Int
+  SetGroupPlacement SetGroupPlacement[]
+}
+
+model SetGroupPlacement {
   id               String            @id
-  createdBy        User?             @relation(fields: [createdById], references: [id])
-  exercises        Exercise[] // usually will just have 1, but could have multiple to create "super sets"
-  defaultNumSets   Int
+  setGroup         SetGroup          @relation(fields: [setGroupId], references: [id])
+  placement        Int
   routineRevisions RoutineRevision[]
+  setGroupId       String
 }
 
 model RoutineRevision {
-  createdAt   DateTime   @default(now())
-  createdById String?
-  id          String     @id
-  createdBy   User?      @relation(fields: [createdById], references: [id])
-  setGroups   SetGroup[]
-  Routine     Routine?   @relation(fields: [routineId], references: [id])
-  routineId   String?
+  createdAt          DateTime            @default(now())
+  createdById        String?
+  id                 String              @id
+  createdBy          User?               @relation(fields: [createdById], references: [id])
+  setGroupPlacements SetGroupPlacement[]
+  Routine            Routine?            @relation(fields: [routineId], references: [id])
+  routineId          String?
 }
 
 model Routine {

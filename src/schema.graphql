@@ -49,6 +49,12 @@ type Muscle {
   name: String!
 }
 
+type SetGroupPlacement {
+  id: ID!
+  setGroup: SetGroup
+  placement: Int
+}
+
 type SetGroup {
   id: ID!
   exercises: [Exercise]
@@ -57,7 +63,7 @@ type SetGroup {
 
 type RoutineRevision {
   id: ID!
-  setGroups: [SetGroup]
+  setGroupPlacements: [SetGroupPlacement]
   routine: Routine
 }
 
