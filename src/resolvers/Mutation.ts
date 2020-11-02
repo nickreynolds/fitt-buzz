@@ -91,6 +91,8 @@ async function cloneRoutineAtRevision(
     throw new Error("Revision not found in Routine! You trying to cheat me??");
   }
 
+  console.log("userId: ", userId);
+
   const setGroupPlacements = await context.prisma.routineRevision
     .findOne({ where: { id: args.revisionId } })
     .setGroupPlacements();
@@ -118,8 +120,9 @@ async function cloneRoutineAtRevision(
     });
     const newSetGroupPlacement = await context.prisma.setGroupPlacement.create({
       data: {
-        id: uuidv4(),
-        setGroup: { connect: { id: newSetGroupId } },
+        createdBy: { connect: { id: userId } },
+        id: setGroupPlacement.placement + "-" + uuidv4(),
+        setGroup: { connect: { id: newSetGroup.id } },
         placement: setGroupPlacement.placement,
       },
     });
@@ -131,8 +134,9 @@ async function cloneRoutineAtRevision(
       id: uuidv4(),
       createdBy: { connect: { id: userId } },
       setGroupPlacements: {
-        connect: setGroupPlacements.map((setGroupPlacement) => {
-          return { id: setGroupPlacement.id };
+        connect: newSetGroupPlacements.map((newSetGroupPlacement) => {
+          console.log("setGroupPlacementID: ", newSetGroupPlacement.id);
+          return { id: newSetGroupPlacement.id };
         }),
       },
     },

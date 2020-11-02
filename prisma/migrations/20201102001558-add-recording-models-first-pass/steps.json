@@ -1,0 +1,726 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateModel",
+      "model": "RoutineRevisionRecording"
+    },
+    {
+      "tag": "CreateField",
+      "model": "RoutineRevisionRecording",
+      "field": "createdAt",
+      "type": "DateTime",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "RoutineRevisionRecording",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "RoutineRevisionRecording",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "now()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "RoutineRevisionRecording",
+      "field": "createdById",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "RoutineRevisionRecording",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "RoutineRevisionRecording",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "RoutineRevisionRecording",
+      "field": "createdBy",
+      "type": "User",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "RoutineRevisionRecording",
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "RoutineRevisionRecording",
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[createdById]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "RoutineRevisionRecording",
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "RoutineRevisionRecording",
+      "field": "revision",
+      "type": "RoutineRevision",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "RoutineRevisionRecording",
+          "field": "revision"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "RoutineRevisionRecording",
+          "field": "revision"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[routineRevisionId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "RoutineRevisionRecording",
+          "field": "revision"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "RoutineRevisionRecording",
+      "field": "routineRevisionId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "SetGroupRecording"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupRecording",
+      "field": "createdAt",
+      "type": "DateTime",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupRecording",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupRecording",
+          "field": "createdAt"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "now()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupRecording",
+      "field": "createdById",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupRecording",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupRecording",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupRecording",
+      "field": "createdBy",
+      "type": "User",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupRecording",
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupRecording",
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[createdById]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupRecording",
+          "field": "createdBy"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupRecording",
+      "field": "setGroup",
+      "type": "SetGroup",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupRecording",
+          "field": "setGroup"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupRecording",
+          "field": "setGroup"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[setGroupId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupRecording",
+          "field": "setGroup"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupRecording",
+      "field": "setGroupId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupRecording",
+      "field": "SetRecording",
+      "type": "SetRecording",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "SetRecording"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetRecording",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "SetRecording",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetRecording",
+      "field": "setGroupRecording",
+      "type": "SetGroupRecording",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "SetRecording",
+          "field": "setGroupRecording"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "SetRecording",
+          "field": "setGroupRecording"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[setGroupRecordingId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "SetRecording",
+          "field": "setGroupRecording"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetRecording",
+      "field": "setGroupRecordingId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetRecording",
+      "field": "exericseRecordings",
+      "type": "ExerciseRecording",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "ExerciseRecording"
+    },
+    {
+      "tag": "CreateField",
+      "model": "ExerciseRecording",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "ExerciseRecording",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "ExerciseRecording",
+      "field": "exercise",
+      "type": "Exercise",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "ExerciseRecording",
+          "field": "exercise"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "ExerciseRecording",
+          "field": "exercise"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[exerciseId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "ExerciseRecording",
+          "field": "exercise"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "ExerciseRecording",
+      "field": "measurableRecordings",
+      "type": "MeasurableRecording",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "ExerciseRecording",
+      "field": "exerciseId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "ExerciseRecording",
+      "field": "SetRecording",
+      "type": "SetRecording",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "ExerciseRecording",
+          "field": "SetRecording"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "ExerciseRecording",
+          "field": "SetRecording"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[setRecordingId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "ExerciseRecording",
+          "field": "SetRecording"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "ExerciseRecording",
+      "field": "setRecordingId",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "MeasurableRecording"
+    },
+    {
+      "tag": "CreateField",
+      "model": "MeasurableRecording",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "MeasurableRecording",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "MeasurableRecording",
+      "field": "measurable",
+      "type": "Measurable",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "MeasurableRecording",
+          "field": "measurable"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "MeasurableRecording",
+          "field": "measurable"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[measurableId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "MeasurableRecording",
+          "field": "measurable"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "MeasurableRecording",
+      "field": "value",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "MeasurableRecording",
+      "field": "ExerciseRecording",
+      "type": "ExerciseRecording",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "MeasurableRecording",
+          "field": "ExerciseRecording"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "MeasurableRecording",
+          "field": "ExerciseRecording"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[exerciseRecordingId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "MeasurableRecording",
+          "field": "ExerciseRecording"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "MeasurableRecording",
+      "field": "exerciseRecordingId",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "MeasurableRecording",
+      "field": "measurableId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Exercise",
+      "field": "ExerciseRecording",
+      "type": "ExerciseRecording",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroup",
+      "field": "SetGroupRecording",
+      "type": "SetGroupRecording",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "RoutineRevision",
+      "field": "RoutineRevisionRecording",
+      "type": "RoutineRevisionRecording",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Measurable",
+      "field": "MeasurableRecording",
+      "type": "MeasurableRecording",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "RoutineRevisionRecording",
+      "type": "RoutineRevisionRecording",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "SetGroupRecording",
+      "type": "SetGroupRecording",
+      "arity": "List"
+    }
+  ]
+}
