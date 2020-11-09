@@ -5,7 +5,7 @@ generator client {
 ///
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 model Exercise {
@@ -74,7 +74,7 @@ model SetGroupRecording {
   setGroup                   SetGroup                  @relation(fields: [setGroupId], references: [id])
   setGroupId                 String
   setRecordings              SetRecording[]
-  completedSets              Int                       @default(0)
+  completedSets              Int
   RoutineRevisionRecording   RoutineRevisionRecording? @relation(fields: [routineRevisionRecordingId], references: [id])
   routineRevisionRecordingId String?
 }
@@ -83,7 +83,6 @@ model SetRecording {
   id                  String              @id
   setGroupRecording   SetGroupRecording   @relation(fields: [setGroupRecordingId], references: [id])
   setGroupRecordingId String
-  completedExercises  Int                 @default(0)
   exericseRecordings  ExerciseRecording[]
 }
 

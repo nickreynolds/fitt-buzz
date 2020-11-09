@@ -6,9 +6,14 @@ import Routine from "./resolvers/Routine";
 import RoutineRevision from "./resolvers/RoutineRevision";
 import User from "./resolvers/User";
 import Exercise from "./resolvers/Exercise";
+import ExerciseRecording from "./resolvers/ExerciseRecording";
 import MuscleImpact from "./resolvers/MuscleImpact";
 import SetGroup from "./resolvers/SetGroup";
+import SetGroupRecording from "./resolvers/SetGroupRecording";
+import SetRecording from "./resolvers/SetRecording";
 import SetGroupPlacement from "./resolvers/SetGroupPlacement";
+import RoutineRevisionRecording from "./resolvers/RoutineRevisionRecording";
+import MeasurableRecording from "./resolvers/MeasurableRecording";
 
 export interface Context {
   prisma: PrismaClient;
@@ -25,6 +30,11 @@ const resolvers = {
   MuscleImpact,
   SetGroup,
   SetGroupPlacement,
+  RoutineRevisionRecording,
+  SetGroupRecording,
+  SetRecording,
+  ExerciseRecording,
+  MeasurableRecording
 };
 
 const prisma = new PrismaClient();

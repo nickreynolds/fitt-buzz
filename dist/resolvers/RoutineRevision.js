@@ -36,80 +36,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var getUserId = require("../utils").getUserId;
-function feed(parent, args, context, info) {
+function setGroupPlacements(parent, args, context) {
     return __awaiter(this, void 0, void 0, function () {
+        var placements;
         return __generator(this, function (_a) {
-            return [2 /*return*/, context.prisma.routine.findMany()];
-        });
-    });
-}
-function myRoutines(parent, args, context, info) {
-    return __awaiter(this, void 0, void 0, function () {
-        var userId;
-        return __generator(this, function (_a) {
-            userId = getUserId(context);
-            return [2 /*return*/, context.prisma.routine.findMany({
-                    where: { createdById: userId },
-                })];
-        });
-    });
-}
-function myRoutineRecordings(parent, args, context, info) {
-    return __awaiter(this, void 0, void 0, function () {
-        var userId;
-        return __generator(this, function (_a) {
-            userId = getUserId(context);
-            return [2 /*return*/, context.prisma.routineRevisionRecording.findMany({
-                    where: { createdById: userId },
-                })];
-        });
-    });
-}
-function routine(parent, args, context, info) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            return [2 /*return*/, context.prisma.routine.findOne({ where: { id: args.id } })];
-        });
-    });
-}
-function routineRevision(parent, args, context, info) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            return [2 /*return*/, context.prisma.routineRevision.findOne({ where: { id: args.id } })];
-        });
-    });
-}
-function routineRevisionRecording(parent, args, context, info) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            return [2 /*return*/, context.prisma.routineRevisionRecording.findOne({
-                    where: { id: args.id },
-                })];
-        });
-    });
-}
-function exercises(parent, args, context, info) {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            console.log("try");
-            try {
-                return [2 /*return*/, context.prisma.exercise.findMany()];
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, context.prisma.routineRevision
+                        .findOne({ where: { id: parent.id } })
+                        .setGroupPlacements()];
+                case 1:
+                    placements = _a.sent();
+                    return [2 /*return*/, placements.sort(function (a, b) {
+                            return a.placement - b.placement;
+                        })];
             }
-            catch (ex) {
-                console.log("ex: ", ex);
-            }
-            return [2 /*return*/, []];
+        });
+    });
+}
+function routine(parent, args, context) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            return [2 /*return*/, context.prisma.routineRevision
+                    .findOne({ where: { id: parent.id } })
+                    .Routine()];
         });
     });
 }
 exports.default = {
-    feed: feed,
+    setGroupPlacements: setGroupPlacements,
     routine: routine,
-    exercises: exercises,
-    myRoutines: myRoutines,
-    myRoutineRecordings: myRoutineRecordings,
-    routineRevision: routineRevision,
-    routineRevisionRecording: routineRevisionRecording,
 };
-//# sourceMappingURL=Query.js.map
+//# sourceMappingURL=RoutineRevision.js.map

@@ -4,6 +4,9 @@ type Query {
   myRoutines: [Routine!]
   exercises: [Exercise!]
   routine(id: String!): Routine
+  routineRevision(id: String!): RoutineRevision
+  routineRevisionRecording(id: String!): RoutineRevisionRecording!
+  myRoutineRecordings: [RoutineRevisionRecording!]
 }
 
 type Mutation {
@@ -22,6 +25,15 @@ type Mutation {
   signup(username: String!, password: String!): AuthPayload
   login(username: String!, password: String!): AuthPayload
   cloneRoutineAtRevision(routineId: String!, revisionId: String!): Routine!
+  startRoutineRevisionRecording(routineId: String!, revisionId: String!): String
+  addExerciseRecording(
+    routineRevisionRecordingId: String!
+    setGroupId: String!
+    setGroupRecordingId: String!
+    exerciseRecordingInput: ExerciseRecordingInput!
+  ): String
+  incrementCompletedSetGroups(routineRevisionRecordingId: String!): String
+  incrementCompletedSets(routineRevisionRecordingId: String!): String
 }
 
 type Exercise {
@@ -37,11 +49,6 @@ type MuscleImpact {
   id: ID!
   impactRating: Int!
   muscle: Muscle!
-}
-
-type Format {
-  name: String!
-  description: String!
 }
 
 type Muscle {
@@ -64,7 +71,7 @@ type SetGroup {
 type RoutineRevision {
   id: ID!
   setGroupPlacements: [SetGroupPlacement]
-  routine: Routine
+  routine: Routine!
 }
 
 type Routine {
@@ -84,4 +91,59 @@ type User {
   id: ID!
   username: String!
   routines: [Routine!]!
+}
+
+type RoutineRevisionRecording {
+  id: ID!
+  routineRevision: RoutineRevision!
+  completedSetGroups: Int!
+  setGroupRecordings: [SetGroupRecording!]
+}
+
+type SetGroupRecording {
+  id: ID!
+  setGroup: SetGroup
+  setGroupId: ID!
+  completedSets: Int!
+  setRecordings: [SetRecording!]
+}
+
+type SetRecording {
+  id: ID!
+  completedExercises: Int!
+  exerciseRecordings: [ExerciseRecording!]
+}
+
+type ExerciseRecording {
+  id: ID!
+  exercise: Exercise
+  measurableRecordings: [MeasurableRecording!]
+}
+
+input ExerciseRecordingInput {
+  exerciseID: ID!
+  measurableRecordings: [MeasurableRecordingInput!]
+}
+
+input MeasurableRecordingInput {
+  measurableID: ID!
+  value: String
+}
+
+type MeasurableRecording {
+  id: ID!
+  measurable: Measurable
+  value: String
+}
+
+type Measurable {
+  id: ID!
+  name: String
+  formats: [Format]
+}
+
+type Format {
+  id: ID!
+  description: String
+  name: String
 }

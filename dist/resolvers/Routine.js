@@ -5,7 +5,13 @@ function createdBy(parent, args, context) {
         .findOne({ where: { id: parent.id } })
         .createdBy();
 }
+function revisions(parent, args, context) {
+    return context.prisma.routine
+        .findOne({ where: { id: parent.id } })
+        .revisions();
+}
 exports.default = {
     createdBy: createdBy,
+    revisions: revisions,
 };
 //# sourceMappingURL=Routine.js.map

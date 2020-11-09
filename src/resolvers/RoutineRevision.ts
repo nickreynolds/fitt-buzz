@@ -10,6 +10,13 @@ async function setGroupPlacements(parent: any, args: any, context: Context) {
   });
 }
 
+async function routine(parent: any, args: any, context: Context) {
+  return context.prisma.routineRevision
+    .findOne({ where: { id: parent.id } })
+    .Routine();
+}
+
 export default {
   setGroupPlacements,
+  routine,
 };

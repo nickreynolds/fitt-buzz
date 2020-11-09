@@ -1,3 +1,4 @@
+import { Exercise, Routine, RoutineRevision, RoutineRevisionRecording } from "@prisma/client";
 import { Context } from "../";
 const { getUserId } = require("../utils");
 
@@ -6,7 +7,7 @@ async function feed(
   args: any,
   context: Context,
   info: any
-): Promise<any[]> {
+): Promise<Routine[]> {
   return context.prisma.routine.findMany();
 }
 
@@ -15,9 +16,21 @@ async function myRoutines(
   args: any,
   context: Context,
   info: any
-): Promise<any[]> {
+): Promise<Routine[]> {
   const userId = getUserId(context);
   return context.prisma.routine.findMany({
+    where: { createdById: userId },
+  });
+}
+
+async function myRoutineRecordings(
+  parent: any,
+  args: any,
+  context: Context,
+  info: any
+): Promise<RoutineRevisionRecording[]> {
+  const userId = getUserId(context);
+  return context.prisma.routineRevisionRecording.findMany({
     where: { createdById: userId },
   });
 }
@@ -27,8 +40,28 @@ async function routine(
   args: any,
   context: Context,
   info: any
-): Promise<any> {
+): Promise<Routine> {
   return context.prisma.routine.findOne({ where: { id: args.id } });
+}
+
+async function routineRevision(
+  parent: any,
+  args: any,
+  context: Context,
+  info: any
+): Promise<RoutineRevision> {
+  return context.prisma.routineRevision.findOne({ where: { id: args.id } });
+}
+
+async function routineRevisionRecording(
+  parent: any,
+  args: any,
+  context: Context,
+  info: any
+): Promise<RoutineRevisionRecording> {
+  return context.prisma.routineRevisionRecording.findOne({
+    where: { id: args.id },
+  });
 }
 
 async function exercises(
@@ -36,14 +69,18 @@ async function exercises(
   args: any,
   context: Context,
   info: any
-): Promise<any[]> {
-  console.log("try");
-  try {
-    return context.prisma.exercise.findMany();
-  } catch (ex) {
-    console.log("ex: ", ex);
-  }
-  return [];
+): Promise<Exercise[]> {
+  return context.prisma.exercise.findMany();
+}
+
+function info(
+  parent: any,
+  args: any,
+  context: Context,
+  info: any
+): string {
+
+  return "ok"
 }
 
 export default {
@@ -51,4 +88,8 @@ export default {
   routine,
   exercises,
   myRoutines,
+  myRoutineRecordings,
+  routineRevision,
+  routineRevisionRecording,
+  info
 };

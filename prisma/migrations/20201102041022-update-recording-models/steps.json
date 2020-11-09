@@ -1,0 +1,91 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "RoutineRevisionRecording",
+      "field": "completedSetGroups",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "RoutineRevisionRecording",
+      "field": "setGroupRecordings",
+      "type": "SetGroupRecording",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupRecording",
+      "field": "setRecordings",
+      "type": "SetRecording",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupRecording",
+      "field": "completedSets",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupRecording",
+      "field": "RoutineRevisionRecording",
+      "type": "RoutineRevisionRecording",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupRecording",
+          "field": "RoutineRevisionRecording"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupRecording",
+          "field": "RoutineRevisionRecording"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[routineRevisionRecordingId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "SetGroupRecording",
+          "field": "RoutineRevisionRecording"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "SetGroupRecording",
+      "field": "routineRevisionRecordingId",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "SetGroupRecording",
+      "field": "SetRecording"
+    }
+  ]
+}

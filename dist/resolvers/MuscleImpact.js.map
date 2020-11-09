@@ -1,0 +1,1 @@
+{"version":3,"file":"MuscleImpact.js","sourceRoot":"","sources":["../../src/resolvers/MuscleImpact.ts"],"names":[],"mappings":";;AAEA,SAAS,MAAM,CAAC,MAAW,EAAE,IAAS,EAAE,OAAgB;IACtD,OAAO,OAAO,CAAC,MAAM,CAAC,YAAY;SAC/B,OAAO,CAAC,EAAE,KAAK,EAAE,EAAE,EAAE,EAAE,MAAM,CAAC,EAAE,EAAE,EAAE,CAAC;SACrC,MAAM,EAAE,CAAC;AACd,CAAC;AAED,kBAAe;IACb,MAAM,QAAA;CACP,CAAC"}
