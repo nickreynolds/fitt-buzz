@@ -233,9 +233,22 @@ async function addExerciseRecording(
     exericseRecordings: { connect: exerciseRecordings.map((recording) => { return { id: recording.id }}) }
   }})
 
-  // await context.prisma.setGroupRecording.update({ where: { id: setGroupRecording.id }, data: {
-  //   exerciseRecordings: { connect: }
-  // }})
+  const numExercisesRecorded = exerciseRecordings.length;
+  const numExercisesInSet = await (await context.prisma.setGroup.findOne({where: {id: args.setGroupId}}).exercises()).length;
+  if (numExercisesRecorded >= numExercisesInSet) {
+    await incrementCompletedSets(parent, {
+      routineRevisionRecordingId: args.routineRevisionRecordingId
+    }, context, info)
+  }
+
+  const numSetsInGroup =  (await context.prisma.setGroup.findOne({where: {id: args.setGroupId}})).defaultNumSets;
+  const numSetsCompleted = (await context.prisma.setGroupRecording.findOne({ where: { id: setGroupRecording.id }})).completedSets;
+
+  if (numSetsCompleted >= numSetsInGroup) {
+    await incrementCompletedSetGroups(parent, {
+      routineRevisionRecordingId: args.routineRevisionRecordingId
+    }, context, info)
+  } 
 
   return recording.id;
 }

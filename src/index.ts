@@ -14,6 +14,7 @@ import SetRecording from "./resolvers/SetRecording";
 import SetGroupPlacement from "./resolvers/SetGroupPlacement";
 import RoutineRevisionRecording from "./resolvers/RoutineRevisionRecording";
 import MeasurableRecording from "./resolvers/MeasurableRecording";
+import Format from "./resolvers/Format";
 
 export interface Context {
   prisma: PrismaClient;
@@ -34,7 +35,8 @@ const resolvers = {
   SetGroupRecording,
   SetRecording,
   ExerciseRecording,
-  MeasurableRecording
+  MeasurableRecording,
+  Format
 };
 
 const prisma = new PrismaClient();

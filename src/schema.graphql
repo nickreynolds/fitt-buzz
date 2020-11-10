@@ -95,6 +95,7 @@ type User {
 
 type RoutineRevisionRecording {
   id: ID!
+  createdAt: String!
   routineRevision: RoutineRevision!
   completedSetGroups: Int!
   setGroupRecordings: [SetGroupRecording!]
@@ -146,4 +147,5 @@ type Format {
   id: ID!
   description: String
   name: String
+  measurables: [Measurable]
 }
