@@ -1,4 +1,4 @@
-import { Exercise, Routine, RoutineRevision, RoutineRevisionRecording } from "@prisma/client";
+import { Exercise, Routine, RoutineRevision, RoutineRevisionRecording, SetGroupRecording } from "@prisma/client";
 import { Context } from "../";
 const { getUserId } = require("../utils");
 
@@ -33,6 +33,29 @@ async function myRoutineRecordings(
   return context.prisma.routineRevisionRecording.findMany({
     where: { createdById: userId },
   });
+}
+
+
+async function myPreviousSetGroupRecording(
+  parent: any,
+  args: any,
+  context: Context,
+  info: any
+): Promise<SetGroupRecording> {
+  const userId = getUserId(context);
+  const recordings = await context.prisma.setGroupRecording.findMany({
+    where: {
+      setGroupId: args.setGroupId,
+      createdById: userId,
+    },
+    orderBy: {
+      createdAt: "desc"
+    }}
+  );
+  if (recordings.length > 0) {
+  return recordings[0];
+  }
+  return null;
 }
 
 async function routine(
@@ -91,5 +114,6 @@ export default {
   myRoutineRecordings,
   routineRevision,
   routineRevisionRecording,
-  info
+  info,
+  myPreviousSetGroupRecording
 };

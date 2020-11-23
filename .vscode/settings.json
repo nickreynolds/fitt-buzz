@@ -3,7 +3,8 @@
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
         "**/.hg/store/**": true,
-        "**/node_modules/**": false
+        "**/node_modules/**": false,
+        "**/node_modules/*/**": false
     },
     "search.exclude": {
         "**/*.code-search": false,

@@ -235,7 +235,10 @@ async function addExerciseRecording(
 
   const numExercisesRecorded = exerciseRecordings.length;
   const numExercisesInSet = await (await context.prisma.setGroup.findOne({where: {id: args.setGroupId}}).exercises()).length;
+  console.log("numExercisesRecorded: ", numExercisesRecorded);
+  console.log("numExercisesInSet: ", numExercisesInSet);
   if (numExercisesRecorded >= numExercisesInSet) {
+    console.log("GO INCREMENT COMPLETED SETS");
     await incrementCompletedSets(parent, {
       routineRevisionRecordingId: args.routineRevisionRecordingId
     }, context, info)
@@ -244,7 +247,11 @@ async function addExerciseRecording(
   const numSetsInGroup =  (await context.prisma.setGroup.findOne({where: {id: args.setGroupId}})).defaultNumSets;
   const numSetsCompleted = (await context.prisma.setGroupRecording.findOne({ where: { id: setGroupRecording.id }})).completedSets;
 
+  console.log("numSetsInGroup: ", numSetsInGroup);
+  console.log("numSetsCompleted: ", numSetsCompleted);
+
   if (numSetsCompleted >= numSetsInGroup) {
+    console.log("GO INCREMENT COMPLETED SET GROUPS");
     await incrementCompletedSetGroups(parent, {
       routineRevisionRecordingId: args.routineRevisionRecordingId
     }, context, info)
