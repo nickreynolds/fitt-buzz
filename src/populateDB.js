@@ -99,7 +99,7 @@ async function main() {
         description: exercise.description,
         format: { connect: { id: exercise.format } },
         muscleImpacts: {
-          connect: exercise.muscleImpacts.map((impact) => {
+          connect: exercise.muscleImpacts?.map((impact) => {
             return { id: impact };
           }),
         },
@@ -109,7 +109,7 @@ async function main() {
         description: exercise.description,
         format: { connect: { id: exercise.format } },
         muscleImpacts: {
-          connect: exercise.muscleImpacts.map((impact) => {
+          connect: exercise.muscleImpacts?.map((impact) => {
             return { id: impact };
           }),
         },

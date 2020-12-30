@@ -32,6 +32,7 @@ async function myRoutineRecordings(
   const userId = getUserId(context);
   return context.prisma.routineRevisionRecording.findMany({
     where: { createdById: userId },
+    orderBy: { createdAt: "desc"}
   });
 }
 
@@ -53,7 +54,7 @@ async function myPreviousSetGroupRecording(
     }}
   );
   if (recordings.length > 0) {
-  return recordings[0];
+    return recordings[0];
   }
   return null;
 }

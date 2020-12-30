@@ -171,9 +171,63 @@
       "description": "Type of Hollow hold progression. You know. Deadbugs.",
       "format": "b94314cc-aaf6-483f-ad71-f239d51c0e23",
       "muscleImpacts": ["d5264c5c-214f-4c3f-9483-9f3ae05eb6ad-1"]
+    },
+    {
+      "id": "5fae84db-f077-4611-aeaa-936e23dc5d7e",
+      "name": "Finger Pulses",
+      "description": "Place your hands on the ground in front of you, putting pressure through your fingers, with your first knuckles bent. \nPulse through your fingers (don’t bounce).\nDo 10-30 repetitions, depending on how you’re feeling and what work you’ve got ahead of you.",
+      "format": "7f737300-3236-4abe-a02b-68c4f964e45e"
+    },
+    {
+      "id": "2b860fb5-8643-4702-856d-35db111810e3",
+      "name": "Palm Pulses",
+      "description": "Put your hands flat on the ground, splaying your fingers as wide as you can.\nPull your palms off the ground, keeping the top part of your hand and your fingers pressed into the ground.\nPulse in and out of this 10-30 times.",
+      "format": "7f737300-3236-4abe-a02b-68c4f964e45e"
+    },
+    {
+      "id": "ca499001-6b29-427e-87b2-485bd7a0d964",
+      "name": "Side-to-Side Palm Rotations",
+      "description": "Lift the bottom part of your palm off the ground, pressing into your fingers and top of the palm (like in the last exercise).This time, roll along the knuckles, placing pressure on one knuckle at a time. Do 10-30 of these rotations. Remember that you can adjust the pressure at any time by just putting less of your weight through the hands.",
+      "format": "7f737300-3236-4abe-a02b-68c4f964e45e"
+    },
+    {
+      "id": "36cba1a3-6482-4948-9d82-d4b2b1613b0e",
+      "name": "Front Facing Elbow Rotations",
+      "description": "From a tabletop position, place your palms flat on the ground with your fingers splayed wide. Now, rotate your elbow pits toward the front. This might feel a bit awkward if you’ve never practiced this before, but just think about moving from the elbow in isolation. This elbow position is an important part of how we teach push-ups too. Do 10-30 rotations.",
+      "format": "7f737300-3236-4abe-a02b-68c4f964e45e"
+    },
+    {
+      "id": "4803a52c-1ea0-4fa1-b2bc-0999f1e3767b",
+      "name": "Side-to-Side Wrist Stretch",
+      "description": "For this stretch, you’ll place your palms flat on the ground, but with your fingers pointing to the sides (away from each other). Shift your body from side-to-side, but as you go to the right, really press into the right side, letting the left hand relax (and vice versa). Try to put as much pressure through the palm as you can tolerate, but remember that this will take time to get used to. Do 10-30 repetitions.",
+      "format": "7f737300-3236-4abe-a02b-68c4f964e45e"
+    },
+    {
+      "id": "b1f0cee8-10af-498e-8753-216cfa0a25e8",
+      "name": "Rear Facing Wrist Stretch (Palms Down)",
+      "description": "Now, instead of having your fingers facing the front or sides, you’ll rotate your wrists around so that your fingers are facing your knees. Start with your fingers closer to your knees (this is easier than further away). Keeping your palms flat on the ground, shift your body back toward your heels, then forward toward your hands. Repeat 10-30 times. If you’re having a hard time rotating your wrists all the way around, you might try doing one hand at a time, or just working at whatever level you’re at, moving gently and carefully.",
+      "format": "7f737300-3236-4abe-a02b-68c4f964e45e"
+    },
+    {
+      "id": "7a164127-f099-4573-b956-6fd23dbe1731",
+      "name": "Rear Facing Wrist Stretch (Palms Up)",
+      "description": "For this variation, you’ll still have your fingers facing your knees, but this time you’ll flip your hands over so that your palms are facing up. Shift your weight back toward your heels and forward toward your hands. This can be a very uncomfortable position in the beginning, so please work slowly, and only go as far as you comfortably can. You should not be moving into pain. Do 10-30 repetitions.",
+      "format": "7f737300-3236-4abe-a02b-68c4f964e45e"
+    },
+    {
+      "id": "a5db9a29-5b72-4500-95ee-68951019d860",
+      "name": "Rear Facing Elbow Rotations",
+      "description": "This last exercise uses the same position you just worked on in the last exercise, with your fingers pointing toward your knees, palms facing up. From that position, you’re now going to work on the elbow rotations you did earlier, focusing on rotating the elbow pits forward without moving the wrists or shoulders. Do 10-30 repetitions.",
+      "format": "7f737300-3236-4abe-a02b-68c4f964e45e"
     }
   ],
   "setGroups": [
+    {
+      "id": "b11a7a3a-a395-4374-82ee-216c9811b52c",
+      "name": "GMB Wrist Prep",
+      "exercises": ["5fae84db-f077-4611-aeaa-936e23dc5d7e", "2b860fb5-8643-4702-856d-35db111810e3", "ca499001-6b29-427e-87b2-485bd7a0d964", "36cba1a3-6482-4948-9d82-d4b2b1613b0e", "4803a52c-1ea0-4fa1-b2bc-0999f1e3767b", "b1f0cee8-10af-498e-8753-216cfa0a25e8", "7a164127-f099-4573-b956-6fd23dbe1731", "a5db9a29-5b72-4500-95ee-68951019d860"],
+      "defaultNumSets": 2
+    },
     {
       "id": "1b955480-3685-401c-88e9-d1fab7898640",
       "exercises": ["b5fd3623-c34b-4b18-b845-4f09d35ff2ae"],
@@ -238,6 +292,7 @@
     {
       "id": "6c4277af-282b-4479-8958-9765437b8c30",
       "setGroups": [
+        "b11a7a3a-a395-4374-82ee-216c9811b52c",
         "79784e82-bdea-42fd-96f1-2cd076bf0636",
         "adab2abf-8800-4110-ab5f-b9fa74d56efd",
         "73a93d79-e7e5-4bb7-a48b-9e34cacf5305"

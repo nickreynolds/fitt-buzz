@@ -145,6 +145,28 @@ async function startRoutineRevisionRecording(
   return routineRecording.id;
 }
 
+async function completeRecording(
+  parent: any,
+  args: any,
+  context: Context,
+  info: any
+): Promise<string> {
+  if (!args.routineRevisionRecordingId) {
+    throw new Error("no routine revision recording specified");
+  }
+  const userId = getUserId(context);
+  const recording = await context.prisma.routineRevisionRecording.findOne({where: {id: args.routineRevisionRecordingId}})
+  if (!recording) {
+    throw new Error("no recording found");
+  }
+  if (recording.routineCompleted) {
+    throw new Error("this recording has already been completed");
+  }
+
+  await context.prisma.routineRevisionRecording.update({ where: { id: args.routineRevisionRecordingId}, data: { routineCompleted: true }});
+  return recording.id;
+}
+
 async function addExerciseRecording(
   parent: any,
   args: any,
@@ -250,12 +272,12 @@ async function addExerciseRecording(
   console.log("numSetsInGroup: ", numSetsInGroup);
   console.log("numSetsCompleted: ", numSetsCompleted);
 
-  if (numSetsCompleted >= numSetsInGroup) {
-    console.log("GO INCREMENT COMPLETED SET GROUPS");
-    await incrementCompletedSetGroups(parent, {
-      routineRevisionRecordingId: args.routineRevisionRecordingId
-    }, context, info)
-  } 
+  // if (numSetsCompleted >= numSetsInGroup) {
+  //   console.log("GO INCREMENT COMPLETED SET GROUPS");
+  //   await incrementCompletedSetGroups(parent, {
+  //     routineRevisionRecordingId: args.routineRevisionRecordingId
+  //   }, context, info)
+  // } 
 
   return recording.id;
 }
@@ -355,5 +377,6 @@ export default {
   startRoutineRevisionRecording,
   addExerciseRecording,
   incrementCompletedSetGroups,
-  incrementCompletedSets
+  incrementCompletedSets,
+  completeRecording
 };

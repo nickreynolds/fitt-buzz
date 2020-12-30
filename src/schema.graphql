@@ -33,6 +33,7 @@ type Mutation {
     setGroupRecordingId: String!
     exerciseRecordingInput: ExerciseRecordingInput!
   ): String
+  completeRecording(routineRevisionRecordingId: String!): String
   incrementCompletedSetGroups(routineRevisionRecordingId: String!): String
   incrementCompletedSets(routineRevisionRecordingId: String!): String
 }
@@ -100,6 +101,7 @@ type RoutineRevisionRecording {
   routineRevision: RoutineRevision!
   completedSetGroups: Int!
   setGroupRecordings: [SetGroupRecording!]
+  recordingCompleted: Boolean
 }
 
 type SetGroupRecording {
