@@ -1,4 +1,4 @@
-import { Exercise, Routine, RoutineRevision, RoutineRevisionRecording, SetGroupRecording } from "@prisma/client";
+import { Exercise, Muscle, Routine, RoutineRevision, RoutineRevisionRecording, SetGroupRecording } from "@prisma/client";
 import { Context } from "../";
 const { getUserId } = require("../utils");
 
@@ -65,7 +65,7 @@ async function routine(
   context: Context,
   info: any
 ): Promise<Routine> {
-  return context.prisma.routine.findOne({ where: { id: args.id } });
+  return context.prisma.routine.findFirst({ where: { id: args.id } });
 }
 
 async function routineRevision(
@@ -74,7 +74,7 @@ async function routineRevision(
   context: Context,
   info: any
 ): Promise<RoutineRevision> {
-  return context.prisma.routineRevision.findOne({ where: { id: args.id } });
+  return context.prisma.routineRevision.findFirst({ where: { id: args.id } });
 }
 
 async function routineRevisionRecording(
@@ -83,7 +83,7 @@ async function routineRevisionRecording(
   context: Context,
   info: any
 ): Promise<RoutineRevisionRecording> {
-  return context.prisma.routineRevisionRecording.findOne({
+  return context.prisma.routineRevisionRecording.findFirst({
     where: { id: args.id },
   });
 }
@@ -95,6 +95,15 @@ async function exercises(
   info: any
 ): Promise<Exercise[]> {
   return context.prisma.exercise.findMany();
+}
+
+async function muscles(
+  parent: any,
+  args: any,
+  context: Context,
+  info: any
+): Promise<Muscle[]> {
+  return context.prisma.muscle.findMany();
 }
 
 function info(
@@ -111,6 +120,7 @@ export default {
   feed,
   routine,
   exercises,
+  muscles,
   myRoutines,
   myRoutineRecordings,
   routineRevision,

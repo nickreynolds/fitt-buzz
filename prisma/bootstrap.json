@@ -145,6 +145,16 @@
       ]
     },
     {
+      "id": "b5fd3623-c34b-4b18-b845-4f09d35ff2ae",
+      "name": "Pull Ups",
+      "description": "Regular Pullups. Remember to squeeze hands towards eachother.",
+      "format": "3dfd8a89-62d1-4b51-be0b-a677f98290f0",
+      "muscleImpacts": [
+        "3ce61d53-b00b-4b4b-abe7-76950c99b4cd-2",
+        "7c492611-71aa-4968-b35f-d490fbda621f-1"
+      ]
+    },
+    {
       "id": "132b608e-c805-4c3e-937f-257c61d9ab69",
       "name": "Trap 3-raise",
       "description": "Bend over. Arms out slightly, raise up. Maybe use super-light weight.",

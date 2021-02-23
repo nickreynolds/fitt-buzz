@@ -3,7 +3,7 @@ import * as bcrypt from "bcryptjs";
 import * as jwt from "jsonwebtoken";
 import { v4 as uuidv4 } from "uuid";
 import { exception } from "console";
-import { prismaVersion } from "@prisma/client";
+// import { prismaVersion } from "@prisma/client";
 const { APP_SECRET, getUserId } = require("../utils");
 
 async function signup(parent: any, args: any, context: Context, info: any) {
@@ -27,7 +27,7 @@ async function signup(parent: any, args: any, context: Context, info: any) {
 
 async function login(parent: any, args: any, context: Context, info: any) {
   // 1
-  const user = await context.prisma.user.findOne({
+  const user = await context.prisma.user.findFirst({
     where: { username: args.username },
   });
   if (!user) {
@@ -48,6 +48,41 @@ async function login(parent: any, args: any, context: Context, info: any) {
     user,
   };
 }
+
+function createMuscle(parent: any, args: any, context: Context, info: any) {
+  return context.prisma.muscle.create({
+    data: {
+      id: uuidv4(),
+      name: args.name,
+      description: args.description,
+    }
+  })
+}
+
+function createMeasurable(parent: any, args: any, context: Context, info: any) {
+  return context.prisma.measurable.create({
+    data: {
+      id: uuidv4(),
+      name: args.name,
+    }
+  })
+}
+
+function createFormat(parent: any, args: any, context: Context, info: any) {
+  return context.prisma.format.create({
+    data: {
+      id: uuidv4(),
+      name: args.name,
+      description: args.description,
+      measurables: { 
+        connect: args.measurables.map((m) => {
+          return { id: m }
+        })
+      }
+    }
+  })
+}
+
 
 function createExercise(parent: any, args: any, context: Context, info: any) {
   const userId = getUserId(context);
@@ -73,7 +108,7 @@ async function incrementCompletedSetGroups(parent: any, args: any, context: Cont
   if (!args.routineRevisionRecordingId) {
     throw new Error("no routine revision recording specified");
   }
-  const recording = await context.prisma.routineRevisionRecording.findOne({where: {id: args.routineRevisionRecordingId}})
+  const recording = await context.prisma.routineRevisionRecording.findFirst({where: {id: args.routineRevisionRecordingId}})
   if (!recording) {
     throw new Error("no recording found");
   }
@@ -89,13 +124,13 @@ async function incrementCompletedSets(parent: any, args: any, context: Context, 
   if (!args.routineRevisionRecordingId) {
     throw new Error("no routine revision recording specified");
   }
-  const recording = await context.prisma.routineRevisionRecording.findOne({where: {id: args.routineRevisionRecordingId}})
+  const recording = await context.prisma.routineRevisionRecording.findFirst({where: {id: args.routineRevisionRecordingId}})
   if (!recording) {
     throw new Error("no recording found");
   }
 
-  const setGroupRecordings = await context.prisma.routineRevisionRecording.findOne({where: {id: args.routineRevisionRecordingId}}).setGroupRecordings();
-  const setGroupRecording = await context.prisma.setGroupRecording.findOne({where: { id: setGroupRecordings[recording.completedSetGroups].id }})
+  const setGroupRecordings = await context.prisma.routineRevisionRecording.findFirst({where: {id: args.routineRevisionRecordingId}}).setGroupRecordings();
+  const setGroupRecording = await context.prisma.setGroupRecording.findFirst({where: { id: setGroupRecordings[recording.completedSetGroups].id }})
   
   await context.prisma.setGroupRecording.update({where: {id: setGroupRecording.id }, data: {
     completedSets: setGroupRecording.completedSets + 1
@@ -114,7 +149,7 @@ async function startRoutineRevisionRecording(
   if (!userId) {
     throw new Error("No user included in request");
   }
-  const routine = await context.prisma.routine.findOne({
+  const routine = await context.prisma.routine.findFirst({
     where: { id: args.routineId },
   });
 
@@ -124,7 +159,7 @@ async function startRoutineRevisionRecording(
     );
   }
 
-  const revision = await context.prisma.routineRevision.findOne({
+  const revision = await context.prisma.routineRevision.findFirst({
     where: { id: args.revisionId },
   });
   if (revision.routineId !== routine.id) {
@@ -155,7 +190,7 @@ async function completeRecording(
     throw new Error("no routine revision recording specified");
   }
   const userId = getUserId(context);
-  const recording = await context.prisma.routineRevisionRecording.findOne({where: {id: args.routineRevisionRecordingId}})
+  const recording = await context.prisma.routineRevisionRecording.findFirst({where: {id: args.routineRevisionRecordingId}})
   if (!recording) {
     throw new Error("no recording found");
   }
@@ -177,12 +212,12 @@ async function addExerciseRecording(
     throw new Error("no routine revision recording specified");
   }
   const userId = getUserId(context);
-  const recording = await context.prisma.routineRevisionRecording.findOne({where: {id: args.routineRevisionRecordingId}})
+  const recording = await context.prisma.routineRevisionRecording.findFirst({where: {id: args.routineRevisionRecordingId}})
   if (!recording) {
     throw new Error("no recording found");
   }
   const currentSetGroupPlacement = recording.completedSetGroups;
-  const setGroupRecordings2 = await context.prisma.routineRevisionRecording.findOne({where: {id: args.routineRevisionRecordingId}}).setGroupRecordings();
+  const setGroupRecordings2 = await context.prisma.routineRevisionRecording.findFirst({where: {id: args.routineRevisionRecordingId}}).setGroupRecordings();
   if (recording.createdById !== userId) {
     throw new Error("authenticated user is not owner of specified recording");
   }
@@ -204,7 +239,7 @@ async function addExerciseRecording(
       setGroupRecordings: { connect: setGroupRecordings2.map((group) => { return { id: group.id }}) }
      }})
   } else {
-    setGroupRecording = await context.prisma.setGroupRecording.findOne({ where: { id: args.setGroupRecordingId }});
+    setGroupRecording = await context.prisma.setGroupRecording.findFirst({ where: { id: args.setGroupRecordingId }});
     if (!setGroupRecording) {
       throw new Error("setGroupRecording not found");
     }
@@ -238,7 +273,7 @@ async function addExerciseRecording(
   const currentSet = setGroupRecording.completedSets;
   // const 
 
-  const setRecordings = await context.prisma.setGroupRecording.findOne({ where: { id: setGroupRecording.id }}).setRecordings();
+  const setRecordings = await context.prisma.setGroupRecording.findFirst({ where: { id: setGroupRecording.id }}).setRecordings();
   let setRecording;
   if (setRecordings.length <= currentSet) {
     setRecording = await context.prisma.setRecording.create({data: {
@@ -249,14 +284,14 @@ async function addExerciseRecording(
     setRecording = setRecordings[currentSet];
   }
 
-  const exerciseRecordings = await context.prisma.setRecording.findOne({where: {id: setRecording.id}}).exericseRecordings();
+  const exerciseRecordings = await context.prisma.setRecording.findFirst({where: {id: setRecording.id}}).exericseRecordings();
   exerciseRecordings.push(exerciseRecording);
   await context.prisma.setRecording.update({where: {id: setRecording.id}, data: {
     exericseRecordings: { connect: exerciseRecordings.map((recording) => { return { id: recording.id }}) }
   }})
 
   const numExercisesRecorded = exerciseRecordings.length;
-  const numExercisesInSet = await (await context.prisma.setGroup.findOne({where: {id: args.setGroupId}}).exercises()).length;
+  const numExercisesInSet = await (await context.prisma.setGroup.findFirst({where: {id: args.setGroupId}}).exercises()).length;
   console.log("numExercisesRecorded: ", numExercisesRecorded);
   console.log("numExercisesInSet: ", numExercisesInSet);
   if (numExercisesRecorded >= numExercisesInSet) {
@@ -266,8 +301,8 @@ async function addExerciseRecording(
     }, context, info)
   }
 
-  const numSetsInGroup =  (await context.prisma.setGroup.findOne({where: {id: args.setGroupId}})).defaultNumSets;
-  const numSetsCompleted = (await context.prisma.setGroupRecording.findOne({ where: { id: setGroupRecording.id }})).completedSets;
+  const numSetsInGroup =  (await context.prisma.setGroup.findFirst({where: {id: args.setGroupId}})).defaultNumSets;
+  const numSetsCompleted = (await context.prisma.setGroupRecording.findFirst({ where: { id: setGroupRecording.id }})).completedSets;
 
   console.log("numSetsInGroup: ", numSetsInGroup);
   console.log("numSetsCompleted: ", numSetsCompleted);
@@ -282,6 +317,15 @@ async function addExerciseRecording(
   return recording.id;
 }
 
+async function addSetGroupRepitition(
+  parent: any,
+  args: any,
+  context: Context,
+  info: any
+) {
+
+}
+
 async function cloneRoutineAtRevision(
   parent: any,
   args: any,
@@ -289,12 +333,12 @@ async function cloneRoutineAtRevision(
   info: any
 ) {
   const userId = getUserId(context);
-  const originalRoutine = await context.prisma.routine.findOne({
+  const originalRoutine = await context.prisma.routine.findFirst({
     where: { id: args.routineId },
   });
 
   const routineRevisions = await context.prisma.routine
-    .findOne({ where: { id: args.routineId } })
+    .findFirst({ where: { id: args.routineId } })
     .revisions();
 
   if (
@@ -308,13 +352,13 @@ async function cloneRoutineAtRevision(
   }
 
   const setGroupPlacements = await context.prisma.routineRevision
-    .findOne({ where: { id: args.revisionId } })
+    .findFirst({ where: { id: args.revisionId } })
     .setGroupPlacements();
   var newSetGroupPlacements = [];
   for (var setGroupPlacement of setGroupPlacements) {
-    // const setGroup = await context.prisma.setGroup.findOne({where: {id: setGroupPlacement.setGroupId}})
+    // const setGroup = await context.prisma.setGroup.findFirst({where: {id: setGroupPlacement.setGroupId}})
     const exercises = await context.prisma.setGroup
-      .findOne({ where: { id: setGroupPlacement.setGroupId } })
+      .findFirst({ where: { id: setGroupPlacement.setGroupId } })
       .exercises();
     const newSetGroupId = uuidv4();
     const newSetGroup = await context.prisma.setGroup.create({
@@ -326,7 +370,7 @@ async function cloneRoutineAtRevision(
           }),
         },
         defaultNumSets: (
-          await context.prisma.setGroup.findOne({
+          await context.prisma.setGroup.findFirst({
             where: { id: setGroupPlacement.setGroupId },
           })
         ).defaultNumSets,
@@ -372,11 +416,15 @@ async function cloneRoutineAtRevision(
 export default {
   signup,
   login,
+  createMuscle,
+  createMeasurable,
+  createFormat,
   createExercise,
   cloneRoutineAtRevision,
   startRoutineRevisionRecording,
   addExerciseRecording,
   incrementCompletedSetGroups,
   incrementCompletedSets,
-  completeRecording
+  completeRecording,
+  addSetGroupRepitition
 };

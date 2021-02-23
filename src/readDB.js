@@ -24,7 +24,7 @@ async function main() {
   const muscleImpacts = await prisma.muscleImpact.findMany();
   console.log("muscleImpacts: ", muscleImpacts);
 
-  const exercise = prisma.exercise.findOne({
+  const exercise = prisma.exercise.findFirst({
     where: { id: "bc122944-fcf1-4902-9193-4bb6a6c16d76" },
   });
   const exerciseMuscleImpacts = await exercise.muscleImpacts();

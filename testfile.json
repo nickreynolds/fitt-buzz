@@ -1,0 +1,561 @@
+{
+  "muscles": [
+    {
+      "createdAt": "2020-12-08T22:02:23.148Z",
+      "description": "The biceps (Latin: musculus biceps brachii, \"two-headed muscle of the arm\", sometimes abbreviated to biceps brachii) is a large muscle that lies on the front of the upper arm between the shoulder and the elbow. Both heads of the muscle arise on the scapula and join to form a single muscle belly which is attached to the upper forearm. While the biceps crosses both the shoulder and elbow joints, its main function is at the elbow where it flexes the forearm and supinates the forearm.",
+      "id": "7c492611-71aa-4968-b35f-d490fbda621f",
+      "name": "Biceps"
+    },
+    {
+      "createdAt": "2020-12-08T22:02:23.368Z",
+      "description": "The triceps, also triceps brachii (Latin for \"three-headed muscle of the arm\"), is a large muscle on the back of the upper limb of many vertebrates. It is the muscle principally responsible for extension of the elbow joint (straightening of the arm).",
+      "id": "77b693c4-b295-4b4a-9a92-cc23e1070dfb",
+      "name": "Triceps"
+    },
+    {
+      "createdAt": "2020-12-08T22:02:23.474Z",
+      "description": "The pectoralis major (from Latin pectus, meaning 'breast') is a thick, fan-shaped muscle, situated at the chest of the human body. It makes up the bulk of the chest muscles and lies under the breast. Beneath the pectoralis major is the pectoralis minor, a thin, triangular muscle. The pectoralis major's primary functions are flexion, adduction, and internal rotation of the humerus. The pectoral major may colloquially be referred to as \"pecs\", \"pectoral muscle\" or \"chest muscle\" due to it being the largest and most superficial muscle in the chest area.",
+      "id": "22b42120-6c7e-4c76-9ea9-df09c3013c88",
+      "name": "Pectoralis major"
+    },
+    {
+      "createdAt": "2020-12-08T22:02:23.584Z",
+      "description": "The latissimus dorsi (/ləˈtɪsɪməs ˈdɔːrsaɪ/) is a large, flat muscle on the back that stretches to the sides, behind the arm, and is partly covered by the trapezius on the back near the midline. The word latissimus dorsi (plural: latissimi dorsi) comes from Latin and means \"broadest [muscle] of the back\", from \"latissimus\" (Latin: broadest)' and \"dorsum\" (Latin: back). The pair of muscles are commonly known as \"lats\", especially among bodybuilders.",
+      "id": "3ce61d53-b00b-4b4b-abe7-76950c99b4cd",
+      "name": "Latissimus dorsi"
+    },
+    {
+      "createdAt": "2020-12-08T22:02:23.708Z",
+      "description": "The trapezius is a large paired surface muscle that extends longitudinally from the occipital bone to the lower thoracic vertebrae of the spine and laterally to the spine of the scapula. It moves the scapula and supports the arm.",
+      "id": "f6f0eaab-06aa-4434-904c-50ce806376fe",
+      "name": "Trapezius"
+    },
+    {
+      "createdAt": "2020-12-08T22:02:23.823Z",
+      "description": "The serratus anterior is a muscle that originates on the surface of the 1st to 8th ribs at the side of the chest and inserts along the entire anterior length of the medial border of the scapula. The serratus anterior acts to pull the scapula forward around the thorax. The muscle is named from Latin: serrare = to saw, referring to the shape, anterior = on the front side of the body.",
+      "id": "076febe2-f661-42a1-9863-53e98fe8ba10",
+      "name": "Serratus Anterior Muscle"
+    },
+    {
+      "createdAt": "2020-12-08T22:02:23.956Z",
+      "description": "The rectus abdominis muscle, also known as the \"abdominal muscle\", is a paired muscle running vertically on each side of the anterior wall of the human abdomen, as well as that of some other mammals. There are two parallel muscles, separated by a midline band of connective tissue called the linea alba. It extends from the pubic symphysis, pubic crest and pubic tubercle inferiorly, to the xiphoid process and costal cartilages of ribs V to VII superiorly. The proximal attachments are the pubic crest and the pubic symphysis. It attaches distally at the costal cartilages of ribs 5-7 and the xiphoid process of the sternum.",
+      "id": "d5264c5c-214f-4c3f-9483-9f3ae05eb6ad",
+      "name": "Rectus Abdominal"
+    }
+  ],
+  "measurables": [
+    {
+      "id": "7692ef79-a043-4486-b295-f78dd4f7c25a",
+      "name": "time"
+    },
+    {
+      "id": "1895a622-edcb-489f-8e52-1489492a0d9e",
+      "name": "reps"
+    },
+    {
+      "id": "cfa7851a-cfa1-4e15-be6b-26f21ed79477",
+      "name": "resistance"
+    },
+    {
+      "id": "51f33b56-a77f-4791-b15e-ff62ed925c57",
+      "name": "assistance"
+    },
+    {
+      "id": "e7369c54-9386-4e28-a9b6-a7e4b6e3d797",
+      "name": "extension"
+    }
+  ],
+  "formats": [
+    {
+      "createdAt": "2020-12-08T22:02:27.729Z",
+      "description": "Standard resistance measurement. How many lbs/kgs or resistance for how many reps.",
+      "id": "4bd2127a-d7f5-4415-bacd-26f9b690edc1",
+      "name": "resistance-for-reps",
+      "measurables": [
+        {
+          "id": "1895a622-edcb-489f-8e52-1489492a0d9e",
+          "name": "reps"
+        },
+        {
+          "id": "cfa7851a-cfa1-4e15-be6b-26f21ed79477",
+          "name": "resistance"
+        }
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:28.021Z",
+      "description": "How many reps.",
+      "id": "7f737300-3236-4abe-a02b-68c4f964e45e",
+      "name": "reps",
+      "measurables": [
+        {
+          "id": "1895a622-edcb-489f-8e52-1489492a0d9e",
+          "name": "reps"
+        }
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:28.194Z",
+      "description": "Standard resistance measurement. How many lbs/kgs or resistance for how many reps.",
+      "id": "3dfd8a89-62d1-4b51-be0b-a677f98290f0",
+      "name": "negative-and-or-assisted-for-reps",
+      "measurables": [
+        {
+          "id": "7692ef79-a043-4486-b295-f78dd4f7c25a",
+          "name": "time"
+        },
+        {
+          "id": "1895a622-edcb-489f-8e52-1489492a0d9e",
+          "name": "reps"
+        },
+        {
+          "id": "cfa7851a-cfa1-4e15-be6b-26f21ed79477",
+          "name": "resistance"
+        }
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:28.411Z",
+      "description": "Measuring progression on static holds. How many lbs/kegs of assistance (if any), at what level of progression, for how long.",
+      "id": "b94314cc-aaf6-483f-ad71-f239d51c0e23",
+      "name": "static-hold-progression",
+      "measurables": [
+        {
+          "id": "1895a622-edcb-489f-8e52-1489492a0d9e",
+          "name": "reps"
+        },
+        {
+          "id": "51f33b56-a77f-4791-b15e-ff62ed925c57",
+          "name": "assistance"
+        },
+        {
+          "id": "e7369c54-9386-4e28-a9b6-a7e4b6e3d797",
+          "name": "extension"
+        }
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "createdAt": "2020-12-08T22:02:28.597Z",
+      "createdById": null,
+      "description": "Do a nice bench press.",
+      "formatId": "4bd2127a-d7f5-4415-bacd-26f9b690edc1",
+      "id": "5d2f8996-22aa-4d08-87ed-5e5ff706da95",
+      "name": "Bench Press",
+      "muscleImpacts": [
+        "77b693c4-b295-4b4a-9a92-cc23e1070dfb-2",
+        "22b42120-6c7e-4c76-9ea9-df09c3013c88-1"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:28.903Z",
+      "createdById": null,
+      "description": "Front Lever progression stick your legs out in front of ya.",
+      "formatId": "b94314cc-aaf6-483f-ad71-f239d51c0e23",
+      "id": "bc122944-fcf1-4902-9193-4bb6a6c16d76",
+      "name": "Front Lever",
+      "muscleImpacts": [
+        "7c492611-71aa-4968-b35f-d490fbda621f-2",
+        "3ce61d53-b00b-4b4b-abe7-76950c99b4cd-1"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:29.102Z",
+      "createdById": null,
+      "description": "One Arm Pull Up Progressions make sure you don't fuck your shoulder up.",
+      "formatId": "3dfd8a89-62d1-4b51-be0b-a677f98290f0",
+      "id": "b5fd3623-c34b-4b18-b845-4f09d35ff2ae",
+      "name": "One Arm Pull Up Progressions",
+      "muscleImpacts": [
+        "7c492611-71aa-4968-b35f-d490fbda621f-1",
+        "3ce61d53-b00b-4b4b-abe7-76950c99b4cd-2"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:29.299Z",
+      "createdById": null,
+      "description": "Bend over. Arms out slightly, raise up. Maybe use super-light weight.",
+      "formatId": "4bd2127a-d7f5-4415-bacd-26f9b690edc1",
+      "id": "132b608e-c805-4c3e-937f-257c61d9ab69",
+      "name": "Trap 3-raise",
+      "muscleImpacts": [
+        "f6f0eaab-06aa-4434-904c-50ce806376fe-1"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:29.549Z",
+      "createdById": null,
+      "description": "Sit Down, weird style. Put elbow on one knee. Rotate hand up.",
+      "formatId": "4bd2127a-d7f5-4415-bacd-26f9b690edc1",
+      "id": "4b610174-ce36-429c-9064-7ebf8172e348",
+      "name": "Shoulder External Rotation",
+      "muscleImpacts": [
+        "f6f0eaab-06aa-4434-904c-50ce806376fe-1"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:29.757Z",
+      "createdById": null,
+      "description": "Face wall. Slightly away. Pinky side of hands against wall, slide them up.",
+      "formatId": "4bd2127a-d7f5-4415-bacd-26f9b690edc1",
+      "id": "a18aee9c-2e25-4249-9a94-b87e9fca9319",
+      "name": "Serratus Wall Slides",
+      "muscleImpacts": [
+        "076febe2-f661-42a1-9863-53e98fe8ba10-1"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:29.941Z",
+      "createdById": null,
+      "description": "Type of Hollow hold progression. You know. Deadbugs.",
+      "formatId": "b94314cc-aaf6-483f-ad71-f239d51c0e23",
+      "id": "1b5c2b10-f4b9-4646-8a85-bfe9659dade1",
+      "name": "Deadbugs",
+      "muscleImpacts": [
+        "d5264c5c-214f-4c3f-9483-9f3ae05eb6ad-1"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:30.143Z",
+      "createdById": null,
+      "description": "Place your hands on the ground in front of you, putting pressure through your fingers, with your first knuckles bent. \nPulse through your fingers (don’t bounce).\nDo 10-30 repetitions, depending on how you’re feeling and what work you’ve got ahead of you.",
+      "formatId": "7f737300-3236-4abe-a02b-68c4f964e45e",
+      "id": "5fae84db-f077-4611-aeaa-936e23dc5d7e",
+      "name": "Finger Pulses",
+      "muscleImpacts": []
+    },
+    {
+      "createdAt": "2020-12-08T22:02:30.295Z",
+      "createdById": null,
+      "description": "Put your hands flat on the ground, splaying your fingers as wide as you can.\nPull your palms off the ground, keeping the top part of your hand and your fingers pressed into the ground.\nPulse in and out of this 10-30 times.",
+      "formatId": "7f737300-3236-4abe-a02b-68c4f964e45e",
+      "id": "2b860fb5-8643-4702-856d-35db111810e3",
+      "name": "Palm Pulses",
+      "muscleImpacts": []
+    },
+    {
+      "createdAt": "2020-12-08T22:02:30.452Z",
+      "createdById": null,
+      "description": "Lift the bottom part of your palm off the ground, pressing into your fingers and top of the palm (like in the last exercise).This time, roll along the knuckles, placing pressure on one knuckle at a time. Do 10-30 of these rotations. Remember that you can adjust the pressure at any time by just putting less of your weight through the hands.",
+      "formatId": "7f737300-3236-4abe-a02b-68c4f964e45e",
+      "id": "ca499001-6b29-427e-87b2-485bd7a0d964",
+      "name": "Side-to-Side Palm Rotations",
+      "muscleImpacts": []
+    },
+    {
+      "createdAt": "2020-12-08T22:02:30.599Z",
+      "createdById": null,
+      "description": "From a tabletop position, place your palms flat on the ground with your fingers splayed wide. Now, rotate your elbow pits toward the front. This might feel a bit awkward if you’ve never practiced this before, but just think about moving from the elbow in isolation. This elbow position is an important part of how we teach push-ups too. Do 10-30 rotations.",
+      "formatId": "7f737300-3236-4abe-a02b-68c4f964e45e",
+      "id": "36cba1a3-6482-4948-9d82-d4b2b1613b0e",
+      "name": "Front Facing Elbow Rotations",
+      "muscleImpacts": []
+    },
+    {
+      "createdAt": "2020-12-08T22:02:30.765Z",
+      "createdById": null,
+      "description": "For this stretch, you’ll place your palms flat on the ground, but with your fingers pointing to the sides (away from each other). Shift your body from side-to-side, but as you go to the right, really press into the right side, letting the left hand relax (and vice versa). Try to put as much pressure through the palm as you can tolerate, but remember that this will take time to get used to. Do 10-30 repetitions.",
+      "formatId": "7f737300-3236-4abe-a02b-68c4f964e45e",
+      "id": "4803a52c-1ea0-4fa1-b2bc-0999f1e3767b",
+      "name": "Side-to-Side Wrist Stretch",
+      "muscleImpacts": []
+    },
+    {
+      "createdAt": "2020-12-08T22:02:30.898Z",
+      "createdById": null,
+      "description": "Now, instead of having your fingers facing the front or sides, you’ll rotate your wrists around so that your fingers are facing your knees. Start with your fingers closer to your knees (this is easier than further away). Keeping your palms flat on the ground, shift your body back toward your heels, then forward toward your hands. Repeat 10-30 times. If you’re having a hard time rotating your wrists all the way around, you might try doing one hand at a time, or just working at whatever level you’re at, moving gently and carefully.",
+      "formatId": "7f737300-3236-4abe-a02b-68c4f964e45e",
+      "id": "b1f0cee8-10af-498e-8753-216cfa0a25e8",
+      "name": "Rear Facing Wrist Stretch (Palms Down)",
+      "muscleImpacts": []
+    },
+    {
+      "createdAt": "2020-12-08T22:02:31.044Z",
+      "createdById": null,
+      "description": "For this variation, you’ll still have your fingers facing your knees, but this time you’ll flip your hands over so that your palms are facing up. Shift your weight back toward your heels and forward toward your hands. This can be a very uncomfortable position in the beginning, so please work slowly, and only go as far as you comfortably can. You should not be moving into pain. Do 10-30 repetitions.",
+      "formatId": "7f737300-3236-4abe-a02b-68c4f964e45e",
+      "id": "7a164127-f099-4573-b956-6fd23dbe1731",
+      "name": "Rear Facing Wrist Stretch (Palms Up)",
+      "muscleImpacts": []
+    },
+    {
+      "createdAt": "2020-12-08T22:02:31.176Z",
+      "createdById": null,
+      "description": "This last exercise uses the same position you just worked on in the last exercise, with your fingers pointing toward your knees, palms facing up. From that position, you’re now going to work on the elbow rotations you did earlier, focusing on rotating the elbow pits forward without moving the wrists or shoulders. Do 10-30 repetitions.",
+      "formatId": "7f737300-3236-4abe-a02b-68c4f964e45e",
+      "id": "a5db9a29-5b72-4500-95ee-68951019d860",
+      "name": "Rear Facing Elbow Rotations",
+      "muscleImpacts": []
+    }
+  ],
+  "setGroups": [
+    {
+      "createdAt": "2020-12-08T22:02:31.309Z",
+      "createdById": null,
+      "id": "b11a7a3a-a395-4374-82ee-216c9811b52c",
+      "defaultNumSets": 2,
+      "exercises": [
+        "5fae84db-f077-4611-aeaa-936e23dc5d7e",
+        "2b860fb5-8643-4702-856d-35db111810e3",
+        "ca499001-6b29-427e-87b2-485bd7a0d964",
+        "36cba1a3-6482-4948-9d82-d4b2b1613b0e",
+        "4803a52c-1ea0-4fa1-b2bc-0999f1e3767b",
+        "b1f0cee8-10af-498e-8753-216cfa0a25e8",
+        "7a164127-f099-4573-b956-6fd23dbe1731",
+        "a5db9a29-5b72-4500-95ee-68951019d860"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:31.578Z",
+      "createdById": null,
+      "id": "1b955480-3685-401c-88e9-d1fab7898640",
+      "defaultNumSets": 3,
+      "exercises": [
+        "b5fd3623-c34b-4b18-b845-4f09d35ff2ae"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:31.770Z",
+      "createdById": null,
+      "id": "adab2abf-8800-4110-ab5f-b9fa74d56efd",
+      "defaultNumSets": 4,
+      "exercises": [
+        "b5fd3623-c34b-4b18-b845-4f09d35ff2ae"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:31.926Z",
+      "createdById": null,
+      "id": "73a93d79-e7e5-4bb7-a48b-9e34cacf5305",
+      "defaultNumSets": 6,
+      "exercises": [
+        "bc122944-fcf1-4902-9193-4bb6a6c16d76"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:32.102Z",
+      "createdById": null,
+      "id": "7b21d133-e7ce-437c-a8c8-27999c038bd5",
+      "defaultNumSets": 2,
+      "exercises": [
+        "132b608e-c805-4c3e-937f-257c61d9ab69"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:32.269Z",
+      "createdById": null,
+      "id": "21594b5e-6267-4fc8-87a1-63a94726912b",
+      "defaultNumSets": 2,
+      "exercises": [
+        "4b610174-ce36-429c-9064-7ebf8172e348"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:32.471Z",
+      "createdById": null,
+      "id": "dcf2fcd9-d15f-4bc8-b59f-b7fac68f17f4",
+      "defaultNumSets": 2,
+      "exercises": [
+        "a18aee9c-2e25-4249-9a94-b87e9fca9319"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:32.642Z",
+      "createdById": null,
+      "id": "cb015a02-32eb-4ce5-b204-aa067aa9a94c",
+      "defaultNumSets": 1,
+      "exercises": [
+        "1b5c2b10-f4b9-4646-8a85-bfe9659dade1"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:32.807Z",
+      "createdById": null,
+      "id": "79784e82-bdea-42fd-96f1-2cd076bf0636",
+      "defaultNumSets": 2,
+      "exercises": [
+        "132b608e-c805-4c3e-937f-257c61d9ab69",
+        "4b610174-ce36-429c-9064-7ebf8172e348",
+        "a18aee9c-2e25-4249-9a94-b87e9fca9319",
+        "1b5c2b10-f4b9-4646-8a85-bfe9659dade1"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:53:05.205Z",
+      "createdById": null,
+      "id": "d8c9431b-b524-4d86-a226-fd96278dd28f",
+      "defaultNumSets": 2,
+      "exercises": [
+        "132b608e-c805-4c3e-937f-257c61d9ab69",
+        "4b610174-ce36-429c-9064-7ebf8172e348",
+        "a18aee9c-2e25-4249-9a94-b87e9fca9319",
+        "1b5c2b10-f4b9-4646-8a85-bfe9659dade1"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:53:05.815Z",
+      "createdById": null,
+      "id": "5b588e6e-5cf8-4516-88ee-37ecd841c66f",
+      "defaultNumSets": 2,
+      "exercises": [
+        "5fae84db-f077-4611-aeaa-936e23dc5d7e",
+        "2b860fb5-8643-4702-856d-35db111810e3",
+        "ca499001-6b29-427e-87b2-485bd7a0d964",
+        "36cba1a3-6482-4948-9d82-d4b2b1613b0e",
+        "4803a52c-1ea0-4fa1-b2bc-0999f1e3767b",
+        "b1f0cee8-10af-498e-8753-216cfa0a25e8",
+        "7a164127-f099-4573-b956-6fd23dbe1731",
+        "a5db9a29-5b72-4500-95ee-68951019d860"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:53:06.237Z",
+      "createdById": null,
+      "id": "3e5d789a-e200-49b4-8507-345de51fcf21",
+      "defaultNumSets": 4,
+      "exercises": [
+        "b5fd3623-c34b-4b18-b845-4f09d35ff2ae"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:53:06.649Z",
+      "createdById": null,
+      "id": "6b80fb7b-15b1-4631-b703-7729e961f204",
+      "defaultNumSets": 6,
+      "exercises": [
+        "bc122944-fcf1-4902-9193-4bb6a6c16d76"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:53:19.250Z",
+      "createdById": null,
+      "id": "5a53a1e4-7757-4207-9a85-73bc5f2ddc5b",
+      "defaultNumSets": 2,
+      "exercises": [
+        "132b608e-c805-4c3e-937f-257c61d9ab69",
+        "4b610174-ce36-429c-9064-7ebf8172e348",
+        "a18aee9c-2e25-4249-9a94-b87e9fca9319",
+        "1b5c2b10-f4b9-4646-8a85-bfe9659dade1"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:53:19.860Z",
+      "createdById": null,
+      "id": "497bf302-e4ca-432d-a078-39c89ac41653",
+      "defaultNumSets": 2,
+      "exercises": [
+        "5fae84db-f077-4611-aeaa-936e23dc5d7e",
+        "2b860fb5-8643-4702-856d-35db111810e3",
+        "ca499001-6b29-427e-87b2-485bd7a0d964",
+        "36cba1a3-6482-4948-9d82-d4b2b1613b0e",
+        "4803a52c-1ea0-4fa1-b2bc-0999f1e3767b",
+        "b1f0cee8-10af-498e-8753-216cfa0a25e8",
+        "7a164127-f099-4573-b956-6fd23dbe1731",
+        "a5db9a29-5b72-4500-95ee-68951019d860"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:53:20.351Z",
+      "createdById": null,
+      "id": "f12f9b0d-3230-4d34-86f6-a274f855e9ee",
+      "defaultNumSets": 4,
+      "exercises": [
+        "b5fd3623-c34b-4b18-b845-4f09d35ff2ae"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:53:20.765Z",
+      "createdById": null,
+      "id": "bd04de1b-6c25-4887-abc1-f277898382f4",
+      "defaultNumSets": 6,
+      "exercises": [
+        "bc122944-fcf1-4902-9193-4bb6a6c16d76"
+      ]
+    }
+  ],
+  "routineRevisions": [
+    {
+      "createdAt": "2020-12-08T22:02:33.353Z",
+      "createdById": null,
+      "id": "5e3bc5ce-01a2-42d5-9a0e-e85715979379",
+      "routineId": "7586832a-9b71-47c2-b27e-782528a93a27",
+      "setGroups": [
+        "1b955480-3685-401c-88e9-d1fab7898640",
+        "73a93d79-e7e5-4bb7-a48b-9e34cacf5305"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:33.640Z",
+      "createdById": null,
+      "id": "117131e3-6613-4d0e-a4ed-81916efbc469",
+      "routineId": "7586832a-9b71-47c2-b27e-782528a93a27",
+      "setGroups": [
+        "adab2abf-8800-4110-ab5f-b9fa74d56efd",
+        "73a93d79-e7e5-4bb7-a48b-9e34cacf5305"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:02:34.263Z",
+      "createdById": null,
+      "id": "6c4277af-282b-4479-8958-9765437b8c30",
+      "routineId": "7586832a-9b71-47c2-b27e-782528a93a27",
+      "setGroups": [
+        "b11a7a3a-a395-4374-82ee-216c9811b52c",
+        "79784e82-bdea-42fd-96f1-2cd076bf0636",
+        "adab2abf-8800-4110-ab5f-b9fa74d56efd",
+        "73a93d79-e7e5-4bb7-a48b-9e34cacf5305"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:53:06.918Z",
+      "createdById": "541f707a-4bcb-4553-9232-7f734c85c5a0",
+      "id": "3320cd4b-e933-4250-966e-c41b4580791d",
+      "routineId": "d5b34a58-aa2f-44e9-96bf-455696f286a4",
+      "setGroups": [
+        "5b588e6e-5cf8-4516-88ee-37ecd841c66f",
+        "d8c9431b-b524-4d86-a226-fd96278dd28f",
+        "3e5d789a-e200-49b4-8507-345de51fcf21",
+        "6b80fb7b-15b1-4631-b703-7729e961f204"
+      ]
+    },
+    {
+      "createdAt": "2020-12-08T22:53:21.019Z",
+      "createdById": "541f707a-4bcb-4553-9232-7f734c85c5a0",
+      "id": "ba8fa6c3-d824-4325-9202-b7809053f3da",
+      "routineId": "e0e795ff-3af7-464b-91ff-fa310b35b017",
+      "setGroups": [
+        "497bf302-e4ca-432d-a078-39c89ac41653",
+        "5a53a1e4-7757-4207-9a85-73bc5f2ddc5b",
+        "f12f9b0d-3230-4d34-86f6-a274f855e9ee",
+        "bd04de1b-6c25-4887-abc1-f277898382f4"
+      ]
+    }
+  ],
+  "routines": [
+    {
+      "createdAt": "2020-12-08T22:02:34.561Z",
+      "createdById": null,
+      "id": "7586832a-9b71-47c2-b27e-782528a93a27",
+      "name": "Babys First Bodyweight Pull Routine",
+      "description": "Just a Few Exercises for yer big back muscles",
+      "cloneOfRoutineId": null
+    },
+    {
+      "createdAt": "2020-12-08T22:53:07.186Z",
+      "createdById": "541f707a-4bcb-4553-9232-7f734c85c5a0",
+      "id": "d5b34a58-aa2f-44e9-96bf-455696f286a4",
+      "name": "Babys First Bodyweight Pull Routine",
+      "description": "Just a Few Exercises for yer big back muscles",
+      "cloneOfRoutineId": "7586832a-9b71-47c2-b27e-782528a93a27"
+    },
+    {
+      "createdAt": "2020-12-08T22:53:21.275Z",
+      "createdById": "541f707a-4bcb-4553-9232-7f734c85c5a0",
+      "id": "e0e795ff-3af7-464b-91ff-fa310b35b017",
+      "name": "Babys First Bodyweight Pull Routine",
+      "description": "Just a Few Exercises for yer big back muscles",
+      "cloneOfRoutineId": "7586832a-9b71-47c2-b27e-782528a93a27"
+    }
+  ]
+}

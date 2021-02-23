@@ -3,6 +3,7 @@ type Query {
   feed: [Routine!]
   myRoutines: [Routine!]
   exercises: [Exercise!]
+  muscles: [Muscle!]
   routine(id: String!): Routine
   routineRevision(id: String!): RoutineRevision
   routineRevisionRecording(id: String!): RoutineRevisionRecording!
@@ -11,6 +12,19 @@ type Query {
 }
 
 type Mutation {
+
+  createMuscle(
+    name: String!
+    description: String!
+  ): Exercise!
+  createMeasurable(
+    name: String!
+  ): Exercise!
+  createFormat(
+    name: String!
+    description: String!
+    measurables: [String!]
+  ): Exercise!
   createRoutine(name: String!, description: String!, color: String!): Routine!
   createRoutineRevision(
     name: String!
@@ -23,6 +37,8 @@ type Mutation {
     format: String!
     muscleImpacts: [String!]
   ): Exercise!
+
+
   signup(username: String!, password: String!): AuthPayload
   login(username: String!, password: String!): AuthPayload
   cloneRoutineAtRevision(routineId: String!, revisionId: String!): Routine!
@@ -33,6 +49,7 @@ type Mutation {
     setGroupRecordingId: String!
     exerciseRecordingInput: ExerciseRecordingInput!
   ): String
+  addSetGroupRepitition(routineRevisionRecordingId: String!, setGroupId: String!): String
   completeRecording(routineRevisionRecordingId: String!): String
   incrementCompletedSetGroups(routineRevisionRecordingId: String!): String
   incrementCompletedSets(routineRevisionRecordingId: String!): String
@@ -56,6 +73,7 @@ type MuscleImpact {
 type Muscle {
   id: ID!
   name: String!
+  description: String!
 }
 
 type SetGroupPlacement {

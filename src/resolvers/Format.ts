@@ -2,7 +2,7 @@ import { Context } from "../";
 
 function measurables(parent: any, args: any, context: Context) {
   return context.prisma.format
-    .findOne({ where: { id: parent.id } })
+    .findFirst({ where: { id: parent.id } })
     .measurables();
 }
 

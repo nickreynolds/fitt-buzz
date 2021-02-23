@@ -6,7 +6,7 @@ async function routines(
   args: any,
   context: Context
 ): Promise<Routine[]> {
-  return context.prisma.user.findOne({ where: { id: parent.id } }).routines();
+  return context.prisma.user.findFirst({ where: { id: parent.id } }).routines();
 }
 
 export default {

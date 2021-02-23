@@ -9,6 +9,7 @@
     "debug": "dotenv -- nodemon -e ts,graphql -x ts-node --inspect src/index.ts",
     "build": "rimraf dist && tsc",
     "populate": "node ./src/populateDB.js",
+    "bootstrap": "node ./src/updateBootstrap.js",
     "read": "node ./src/readDB.js",
     "test": "mocha test/*.test.js"
   },
@@ -19,6 +20,7 @@
     "@prisma/client": "^2.4.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
+    "fs": "^0.0.1-security",
     "graphql-yoga": "^1.18.3",
     "jsonwebtoken": "^8.5.1",
     "neo4j-graphql-js": "^2.17.1",
